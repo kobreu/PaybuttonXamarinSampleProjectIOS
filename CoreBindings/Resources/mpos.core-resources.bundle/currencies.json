@@ -1,0 +1,257 @@
+{
+    "AED" : {
+        "isoNumber" : 784,
+        "name" : "United Arab Emirates Dirham",
+        "exponent" : 2
+    },
+    "ARS" : {
+        "isoNumber" : 32,
+        "name" : "Argentine Peso",
+        "exponent" : 2
+    },
+    "AUD" : {
+        "isoNumber" : 36,
+        "name" : "Australian Dollar",
+        "exponent" : 2
+    },
+    "AZN" : {
+        "isoNumber" : 944,
+        "name" : "Azerbaijani Manat",
+        "exponent" : 2
+    },
+    "BGN" : {
+        "isoNumber" : 975,
+        "name" : "Bulgarian Lev",
+        "exponent" : 2
+    },
+    "BHD" : {
+        "isoNumber" : 48,
+        "name" : "Bahraini Dinar",
+        "exponent" : 3
+    },    
+    "BRL" : {
+        "isoNumber" : 986,
+        "name" : "Brazilian Real",
+        "exponent" : 2
+    },
+    "CAD" : {
+        "isoNumber" : 124,
+        "name" : "Canadian Dollar",
+        "exponent" : 2
+    },
+    "CHF" : {
+        "isoNumber" : 756,
+        "name" : "Swiss Franc",
+        "exponent" : 2
+    },
+    "CNY": {
+        "isoNumber": 156,
+        "name": "Chinese Yuan",
+        "exponent": 2
+    },
+    "COP" : {
+        "isoNumber" : 170,
+        "name" : "Colombian Peso",
+        "exponent" : 2
+    },
+    "CZK" : {
+        "isoNumber" : 203,
+        "name" : "Czech Koruna",
+        "exponent" : 2
+    },
+    "DKK" : {
+        "isoNumber" : 208,
+        "name" : "Danish Krone",
+        "exponent" : 2
+    },
+    "EGP" : {
+        "isoNumber" : 818,
+        "name" : "Egyptian Pound",
+        "exponent" : 2
+    },
+    "EUR" : {
+        "isoNumber" : 978,
+        "name" : "Euro",
+        "exponent" : 2
+    },    
+    "GBP" : {
+        "isoNumber" : 826,
+        "name" : "Pound Sterling",
+        "exponent" : 2
+    },
+    "GHS" : {
+        "isoNumber" : 936,
+        "name" : "Ghanaian Cedi",
+        "exponent" : 2
+    },
+    "HKD" : {
+        "isoNumber" : 344,
+        "name" : "Hong Kong Dollar",
+        "exponent" : 2
+    },
+    "HRK" : {
+        "isoNumber" : 191,
+        "name" : "Croatian Kuna",
+        "exponent" : 2
+    },
+    "HUF" : {
+        "isoNumber" : 348,
+        "name" : "Hungarian Forint",
+        "exponent" : 2
+    },
+    "ILS" : {
+        "isoNumber" : 376,
+        "name" : "Israeli New Shekel",
+        "exponent" : 2
+    },
+    "INR" : {
+        "isoNumber" : 356,
+        "name" : "Indian Rupee",
+        "exponent" : 2
+    },
+    "JPY" : {
+        "isoNumber" : 392,
+        "name" : "Japanese Yen",
+        "exponent" : 0
+    },
+    "KRW" : {
+        "isoNumber" : 410,
+        "name" : "South Korean Won",
+        "exponent" : 0
+    },
+    "KWD" : {
+        "isoNumber" : 414,
+        "name" : "Kuwaiti Dinar",
+        "exponent" : 3
+    },
+    "MAD" : {
+        "isoNumber" : 504,
+        "name" : "Moroccan Dirham",
+        "exponent" : 2
+    },
+    "MXN" : {
+        "isoNumber" : 484,
+        "name" : "Mexican Peso",
+        "exponent" : 2
+    },
+    "MYR" : {
+        "isoNumber" : 458,
+        "name" : "Malaysian Ringgit",
+        "exponent" : 2
+    },
+    "NGN" : {
+        "isoNumber" : 566,
+        "name" : "Nigerian Naira",
+        "exponent" : 2
+    },
+    "NOK" : {
+        "isoNumber" : 578,
+        "name" : "Norwegian Krone",
+        "exponent" : 2
+    },
+    "NZD" : {
+        "isoNumber" : 554,
+        "name" : "New Zealand Dollar",
+        "exponent" : 2
+    },
+    "OMR" : {
+        "isoNumber" : 512,
+        "name" : "Omani Rial",
+        "exponent" : 3
+    },
+    "PHP" : {
+        "isoNumber" : 608,
+        "name" : "Philippine Peso",
+        "exponent" : 2
+    },
+    "PKR" : {
+        "isoNumber" : 586,
+        "name" : "Pakistani Rupee",
+        "exponent" : 2
+    },
+    "PLN" : {
+        "isoNumber" : 985,
+        "name" : "Polish Zloty",
+        "exponent" : 2
+    },
+    "QAR" : {
+        "isoNumber" : 634,
+        "name" : "Qatari Rial",
+        "exponent" : 2
+    },
+    "RON" : {
+        "isoNumber" : 946,
+        "name" : "Romanian Leu",
+        "exponent" : 2
+    },
+    "RSD" : {
+        "isoNumber" : 941,
+        "name" : "Serbian Dinar",
+        "exponent" : 2
+    },
+    "RUB" : {
+        "isoNumber" : 643,
+        "name" : "Russian Ruble",
+        "exponent" : 2
+    },
+    "SAR" : {
+        "isoNumber" : 682,
+        "name" : "Saudi Riyal",
+        "exponent" : 2
+    },
+    "SEK" : {
+        "isoNumber" : 752,
+        "name" : "Swedish Krona",
+        "exponent" : 2
+    },
+    "SGD" : {
+        "isoNumber" : 702,
+        "name" : "Singapore Dollar",
+        "exponent" : 2
+    },
+    "THB" : {
+        "isoNumber" : 764,
+        "name" : "Thai Baht",
+        "exponent" : 2
+    },
+    "TND" : {
+        "isoNumber" : 788,
+        "name" : "Tunisian Dinar",
+        "exponent" : 3
+    },
+    "TRY" : {
+        "isoNumber" : 949,
+        "name" : "Turkish Lira",
+        "exponent" : 2
+    },
+    "TWD" : {
+        "isoNumber" : 901,
+        "name" : "New Taiwan Dollar",
+        "exponent" : 2
+    },
+    "UAH" : {
+        "isoNumber" : 980,
+        "name" : "Ukrainian Hryvnia",
+        "exponent" : 2
+    },
+    "USD" : {
+        "isoNumber" : 840,
+        "name" : "US Dollar",
+        "exponent" : 2
+    },
+    "VND" : {
+        "isoNumber" : 704,
+        "name" : "Vietnamese Dong",
+        "exponent" : 0
+    },
+    "ZAR" : {
+        "isoNumber" : 710,
+        "name" : "South African Rand",
+        "exponent" : 2
+    },
+    "UNKNOWN" : {
+        "isoNumber" : 0,
+        "name" : "Unknown",
+        "exponent" : 2
+    }
+}

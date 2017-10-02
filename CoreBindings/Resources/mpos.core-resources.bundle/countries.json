@@ -1,0 +1,587 @@
+{
+    "AD" : {
+        "isoNumber" : 20,
+        "name" : "Andorra",
+        "currency" : "EUR"
+    },
+    "AE" : {
+        "isoNumber" : 784,
+        "name" : "United Arab Emirates",
+        "currency" : "AED"
+    },
+    "AR" : {
+        "isoNumber" : 32,
+        "name" : "Argentina",
+        "currency" : "ARS"
+    },
+    "AS" : {
+        "isoNumber" : 16,
+        "name" : "American Samoa",
+        "currency" : "USD"
+    },
+    "AT" : {
+        "isoNumber" : 40,
+        "name" : "Austria",
+        "currency" : "EUR"
+    },
+    "AU" : {
+        "isoNumber" : 36,
+        "name" : "Australia",
+        "currency" : "AUD"
+    },
+    "AX" : {
+        "isoNumber" : 248,
+        "name" : "Åland Islands",
+        "currency" : "EUR"
+    },
+    "AZ" : {
+        "isoNumber" : 31,
+        "name" : "Azerbaijan",
+        "currency" : "AZN"
+    },
+    "BE" : {
+        "isoNumber" : 56,
+        "name" : "Belgium",
+        "currency" : "EUR"
+    },
+    "BG" : {
+        "isoNumber" : 100,
+        "name" : "Bulgaria",
+        "currency" : "BGN"
+    },
+    "BH" : {
+        "isoNumber" : 48,
+        "name" : "Bahrain",
+        "currency" : "BHD"
+    },
+    "BL" : {
+        "isoNumber" : 652,
+        "name" : "Saint Barthélemy",
+        "currency" : "EUR"
+    },
+    "BQ" : {
+        "isoNumber" : 535,
+        "name" : "Bonaire, Sint Eustatius and Saba",
+        "currency" : "USD"
+    },
+    "BR" : {
+        "isoNumber" : 76,
+        "name" : "Brazil",
+        "currency" : "BRL"
+    },
+    "BV" : {
+        "isoNumber" : 74,
+        "name" : "Bouvet Island",
+        "currency" : "NOK"
+    },
+    "CA" : {
+        "isoNumber" : 124,
+        "name" : "Canada",
+        "currency" : "CAD"
+    },
+    "CC" : {
+        "isoNumber" : 166,
+        "name" : "Cocos (Keeling) Islands",
+        "currency" : "AUD"
+    },
+    "CH" : {
+        "isoNumber" : 756,
+        "name" : "Switzerland",
+        "currency" : "CHF"
+    },
+    "CK" : {
+        "isoNumber" : 184,
+        "name" : "Cook Islands",
+        "currency" : "NZD"
+    },
+    "CO" : {
+        "isoNumber" : 170,
+        "name" : "Colombia",
+        "currency" : "COP"
+    },
+    "CX" : {
+        "isoNumber" : 162,
+        "name" : "Christmas Island",
+        "currency" : "AUD"
+    },
+    "CY" : {
+        "isoNumber" : 196,
+        "name" : "Cyprus",
+        "currency" : "EUR"
+    },
+    "CZ" : {
+        "isoNumber" : 203,
+        "name" : "Czech Republic",
+        "currency" : "CZK"
+    },
+    "DE" : {
+        "isoNumber" : 276,
+        "name" : "Germany",
+        "currency" : "EUR"
+    },
+    "DK" : {
+        "isoNumber" : 208,
+        "name" : "Denmark",
+        "currency" : "DKK"
+    },
+    "EC" : {
+        "isoNumber" : 218,
+        "name" : "Ecuador",
+        "currency" : "USD"
+    },
+    "EE" : {
+        "isoNumber" : 233,
+        "name" : "Estonia",
+        "currency" : "EUR"
+    },
+    "EG" : {
+        "isoNumber" : 818,
+        "name" : "Egypt",
+        "currency" : "EGP"
+    },
+    "EH" : {
+        "isoNumber" : 732,
+        "name" : "Western Sahara",
+        "currency" : "MAD"
+    },
+    "ES" : {
+        "isoNumber" : 724,
+        "name" : "Spain",
+        "currency" : "EUR"
+    },
+    "FI" : {
+        "isoNumber" : 246,
+        "name" : "Finland",
+        "currency" : "EUR"
+    },
+    "FM" : {
+        "isoNumber" : 583,
+        "name" : "Micronesia, Federated States of",
+        "currency" : "USD"
+    },
+    "FO" : {
+        "isoNumber" : 234,
+        "name" : "Faroe Islands",
+        "currency" : "DKK"
+    },
+    "FR" : {
+        "isoNumber" : 250,
+        "name" : "France",
+        "currency" : "EUR"
+    },
+    "GB" : {
+        "isoNumber" : 826,
+        "name" : "United Kingdom",
+        "currency" : "GBP"
+    },
+    "GF" : {
+        "isoNumber" : 254,
+        "name" : "French Guiana",
+        "currency" : "EUR"
+    },
+    "GG" : {
+        "isoNumber" : 831,
+        "name" : "Guernsey",
+        "currency" : "GBP"
+    },
+    "GH" : {
+        "isoNumber" : 288,
+        "name" : "Ghana",
+        "currency" : "GHS"
+    },
+    "GL" : {
+        "isoNumber" : 304,
+        "name" : "Greenland",
+        "currency" : "DKK"
+    },
+    "GP" : {
+        "isoNumber" : 312,
+        "name" : "Guadeloupe",
+        "currency" : "EUR"
+    },
+    "GR" : {
+        "isoNumber" : 300,
+        "name" : "Greece",
+        "currency" : "EUR"
+    },
+    "GU" : {
+        "isoNumber" : 316,
+        "name" : "Guam",
+        "currency" : "USD"
+    },
+    "HK" : {
+        "isoNumber" : 344,
+        "name" : "Hong Kong",
+        "currency" : "HKD"
+    },
+    "HM" : {
+        "isoNumber" : 334,
+        "name" : "Heard Island and McDonald Islands",
+        "currency" : "AUD"
+    },
+    "HR" : {
+        "isoNumber" : 191,
+        "name" : "Croatia",
+        "currency" : "HRK"
+    },
+    "HU" : {
+        "isoNumber" : 348,
+        "name" : "Hungary",
+        "currency" : "HUF"
+    },
+    "IE" : {
+        "isoNumber" : 372,
+        "name" : "Ireland",
+        "currency" : "EUR"
+    },
+    "IL" : {
+        "isoNumber" : 376,
+        "name" : "Israel",
+        "currency" : "ILS"
+    },
+    "IM" : {
+        "isoNumber" : 833,
+        "name" : "Isle of Man",
+        "currency" : "GBP"
+    },
+    "IN" : {
+        "isoNumber" : 356,
+        "name" : "India",
+        "currency" : "INR"
+    },
+    "IO" : {
+        "isoNumber" : 86,
+        "name" : "British Indian Ocean Territory",
+        "currency" : "USD"
+    },
+    "IT" : {
+        "isoNumber" : 380,
+        "name" : "Italy",
+        "currency" : "EUR"
+    },
+    "JE" : {
+        "isoNumber" : 832,
+        "name" : "Jersey",
+        "currency" : "GBP"
+    },
+    "JP" : {
+        "isoNumber" : 392,
+        "name" : "Japan",
+        "currency" : "JPY"
+    },
+    "KI" : {
+        "isoNumber" : 296,
+        "name" : "Kiribati",
+        "currency" : "AUD"
+    },
+    "KR" : {
+        "isoNumber" : 410,
+        "name" : "Korea, Republic of",
+        "currency" : "KRW"
+    },
+    "KW" : {
+        "isoNumber" : 414,
+        "name" : "Kuwait",
+        "currency" : "KWD"
+    },
+    "LI" : {
+        "isoNumber" : 438,
+        "name" : "Liechtenstein",
+        "currency" : "CHF"
+    },
+    "LU" : {
+        "isoNumber" : 442,
+        "name" : "Luxembourg",
+        "currency" : "EUR"
+    },
+    "LV" : {
+        "isoNumber" : 428,
+        "name" : "Latvia",
+        "currency" : "EUR"
+    },
+    "MA" : {
+        "isoNumber" : 504,
+        "name" : "Morocco",
+        "currency" : "MAD"
+    },
+    "MC" : {
+        "isoNumber" : 492,
+        "name" : "Monaco",
+        "currency" : "EUR"
+    },
+    "ME" : {
+        "isoNumber" : 499,
+        "name" : "Montenegro",
+        "currency" : "EUR"
+    },
+    "MF" : {
+        "isoNumber" : 663,
+        "name" : "Saint Martin (French part)",
+        "currency" : "EUR"
+    },
+    "MH" : {
+        "isoNumber" : 584,
+        "name" : "Marshall Islands",
+        "currency" : "USD"
+    },
+    "MP" : {
+        "isoNumber" : 580,
+        "name" : "Northern Mariana Islands",
+        "currency" : "USD"
+    },
+    "MQ" : {
+        "isoNumber" : 474,
+        "name" : "Martinique",
+        "currency" : "EUR"
+    },
+    "MT" : {
+        "isoNumber" : 470,
+        "name" : "Malta",
+        "currency" : "EUR"
+    },
+    "MX" : {
+        "isoNumber" : 484,
+        "name" : "Mexico",
+        "currency" : "MXN"
+    },
+    "MY" : {
+        "isoNumber" : 458,
+        "name" : "Malaysia",
+        "currency" : "MYR"
+    },
+    "NF" : {
+        "isoNumber" : 574,
+        "name" : "Norfolk Island",
+        "currency" : "AUD"
+    },
+    "NG" : {
+        "isoNumber" : 566,
+        "name" : "Nigeria",
+        "currency" : "NGN"
+    },
+    "NL" : {
+        "isoNumber" : 528,
+        "name" : "Netherlands",
+        "currency" : "EUR"
+    },
+    "NO" : {
+        "isoNumber" : 578,
+        "name" : "Norway",
+        "currency" : "NOK"
+    },
+    "NR" : {
+        "isoNumber" : 520,
+        "name" : "Nauru",
+        "currency" : "AUD"
+    },
+    "NU" : {
+        "isoNumber" : 570,
+        "name" : "Niue",
+        "currency" : "NZD"
+    },
+    "NZ" : {
+        "isoNumber" : 554,
+        "name" : "New Zealand",
+        "currency" : "NZD"
+    },
+    "OM" : {
+        "isoNumber" : 512,
+        "name" : "Oman",
+        "currency" : "OMR"
+    },
+    "PH" : {
+        "isoNumber" : 608,
+        "name" : "Philippines",
+        "currency" : "PHP"
+    },
+    "PK" : {
+        "isoNumber" : 586,
+        "name" : "Pakistan",
+        "currency" : "PKR"
+    },
+    "PL" : {
+        "isoNumber" : 616,
+        "name" : "Poland",
+        "currency" : "PLN"
+    },
+    "PM" : {
+        "isoNumber" : 666,
+        "name" : "Saint Pierre and Miquelon",
+        "currency" : "EUR"
+    },
+    "PN" : {
+        "isoNumber" : 612,
+        "name" : "Pitcairn",
+        "currency" : "NZD"
+    },
+    "PR" : {
+        "isoNumber" : 630,
+        "name" : "Puerto Rico",
+        "currency" : "USD"
+    },
+    "PT" : {
+        "isoNumber" : 620,
+        "name" : "Portugal",
+        "currency" : "EUR"
+    },
+    "PW" : {
+        "isoNumber" : 585,
+        "name" : "Palau",
+        "currency" : "USD"
+    },
+    "QA" : {
+        "isoNumber" : 634,
+        "name" : "Qatar",
+        "currency" : "QAR"
+    },
+    "RE" : {
+        "isoNumber" : 638,
+        "name" : "Réunion",
+        "currency" : "EUR"
+    },
+    "RO" : {
+        "isoNumber" : 642,
+        "name" : "Romania",
+        "currency" : "RON"
+    },
+    "RS" : {
+        "isoNumber" : 688,
+        "name" : "Serbia",
+        "currency" : "RSD"
+    },
+    "RU" : {
+        "isoNumber" : 643,
+        "name" : "Russian Federation",
+        "currency" : "RUB"
+    },
+    "SA" : {
+        "isoNumber" : 682,
+        "name" : "Saudi Arabia",
+        "currency" : "SAR"
+    },
+    "SE" : {
+        "isoNumber" : 752,
+        "name" : "Sweden",
+        "currency" : "SEK"
+    },
+    "SG" : {
+        "isoNumber" : 702,
+        "name" : "Singapore",
+        "currency" : "SGD"
+    },
+    "SI" : {
+        "isoNumber" : 705,
+        "name" : "Slovenia",
+        "currency" : "EUR"
+    },
+    "SJ" : {
+        "isoNumber" : 744,
+        "name" : "Svalbard and Jan Mayen",
+        "currency" : "NOK"
+    },
+    "SK" : {
+        "isoNumber" : 703,
+        "name" : "Slovakia",
+        "currency" : "EUR"
+    },
+    "SM" : {
+        "isoNumber" : 674,
+        "name" : "San Marino",
+        "currency" : "EUR"
+    },
+    "TC" : {
+        "isoNumber" : 796,
+        "name" : "Turks and Caicos Islands",
+        "currency" : "USD"
+    },
+    "TF" : {
+        "isoNumber" : 260,
+        "name" : "French Southern Territories",
+        "currency" : "EUR"
+    },
+    "TH" : {
+        "isoNumber" : 764,
+        "name" : "Thailand",
+        "currency" : "THB"
+    },
+    "TK" : {
+        "isoNumber" : 772,
+        "name" : "Tokelau",
+        "currency" : "NZD"
+    },
+    "TL" : {
+        "isoNumber" : 626,
+        "name" : "Timor-Leste",
+        "currency" : "USD"
+    },
+    "TN" : {
+        "isoNumber" : 788,
+        "name" : "Tunisia",
+        "currency" : "TND"
+    },
+    "TR" : {
+        "isoNumber" : 792,
+        "name" : "Turkey",
+        "currency" : "TRY"
+    },
+    "TV" : {
+        "isoNumber" : 798,
+        "name" : "Tuvalu",
+        "currency" : "AUD"
+    },
+    "TW" : {
+        "isoNumber" : 158,
+        "name" : "Taiwan, Province of China",
+        "currency" : "TWD"
+    },
+    "UA" : {
+        "isoNumber" : 804,
+        "name" : "Ukraine",
+        "currency" : "UAH"
+    },
+    "UM" : {
+        "isoNumber" : 581,
+        "name" : "United States Minor Outlying Islands",
+        "currency" : "USD"
+    },
+    "US" : {
+        "isoNumber" : 840,
+        "name" : "United States",
+        "currency" : "USD"
+    },
+    "VA" : {
+        "isoNumber" : 336,
+        "name" : "Holy See (Vatican City State)",
+        "currency" : "EUR"
+    },
+    "VG" : {
+        "isoNumber" : 92,
+        "name" : "Virgin Islands, British",
+        "currency" : "USD"
+    },
+    "VI" : {
+        "isoNumber" : 850,
+        "name" : "Virgin Islands, U.S.",
+        "currency" : "USD"
+    },
+    "VN" : {
+        "isoNumber" : 704,
+        "name" : "Viet Nam",
+        "currency" : "VND"
+    },
+    "YT" : {
+        "isoNumber" : 175,
+        "name" : "Mayotte",
+        "currency" : "EUR"
+    },
+    "ZA" : {
+        "isoNumber" : 710,
+        "name" : "South Africa",
+        "currency" : "ZAR"
+    },
+    "UNKNOWN" : {
+        "isoNumber" : 0,
+        "name" : "Unknown",
+        "currency": "UNKNOWN"
+    }
+}

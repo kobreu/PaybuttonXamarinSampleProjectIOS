@@ -1,0 +1,369 @@
+{
+    "info": {
+        "columns": 20, 
+        "locale": "en_US", 
+        "rows": 4
+    }, 
+    "localization": {
+        "ApplicationSelection": [
+            "", 
+            "Please select", 
+            "your account", 
+            ""
+        ], 
+        "AuthorizingTransaction": [
+            "", 
+            "Processing", 
+            "payment...", 
+            ""
+        ], 
+        "AuthorizingRefund": [
+            "", 
+            "Processing", 
+            "refund...", 
+            ""
+        ], 
+        "BarcodeScannerActive": [
+            "", 
+            "Barcode scanner", 
+            "active", 
+            ""
+        ], 
+        "CardNotSupportedIccMagstripe": [
+            "", 
+            "", 
+            "Try another card", 
+            ""
+        ], 
+        "CardNotSupportedNfc": [
+            "", 
+            "Insert, swipe or", 
+            "try another card", 
+            ""
+        ], 
+        "CompletedWithStatus": [
+            "", 
+            "$reason1$", 
+            "$reason2$", 
+            ""
+        ], 
+        "CompletingTransaction": [
+            "", 
+            "Processing", 
+            "payment...", 
+            ""
+        ], 
+        "CompletingRefund": [
+            "", 
+            "Processing", 
+            "refund...", 
+            ""
+        ], 
+        "GenericError": [
+            "", 
+            "", 
+            "Error", 
+            ""
+        ], 
+        "Idle": [
+            "", 
+            "", 
+            "Please wait...", 
+            ""
+        ], 
+        "InsertCard": [
+            "$amount$", 
+            "", 
+            "Insert card", 
+            ""
+        ], 
+        "InsertOrSwipeCard": [
+            "$amount$", 
+            "", 
+            "Insert or", 
+            "swipe card"
+        ], 
+        "InsertOrSwipeCardActivateNfc": [
+            "$amount$", 
+            "Insert or", 
+            "swipe card", 
+            "[OK] for NFC"
+        ], 
+        "PINIncorrect": [
+            "", 
+            "Enter PIN", 
+            "$digits$", 
+            "(PIN incorrect)"
+        ], 
+        "PINLastTry": [
+            "", 
+            "Enter PIN", 
+            "$digits$", 
+            "(last try)"
+        ], 
+        "PINOk": [
+            "", 
+            "", 
+            "PIN OK", 
+            ""
+        ], 
+        "PINStatus": [
+            "", 
+            "Enter PIN", 
+            "$digits$", 
+            ""
+        ], 
+        "PresentCard": [
+            "$amount$", 
+            "", 
+            "Present card", 
+            ""
+        ], 
+        "ProcessingTransaction": [
+            "", 
+            "Processing", 
+            "payment...", 
+            ""
+        ], 
+        "ProcessingRefund": [
+            "", 
+            "Processing", 
+            "refund...", 
+            ""
+        ], 
+        "ProvideIdentification": [
+            "", 
+            "Identification", 
+            "required", 
+            ""
+        ], 
+        "ProvideSignature": [
+            "", 
+            "Signature", 
+            "required", 
+            ""
+        ], 
+        "ProvideSignatureWithStatus": [
+            "$reason1$", 
+            "$reason2$", 
+            "Signature", 
+            "required"
+        ], 
+        "ProviderAccessoryCheckingForUpdate": [
+            ""
+        ], 
+        "ProviderAccessoryConnecting": [
+            ""
+        ], 
+        "ProviderAccessoryDisconnecting": [
+            ""
+        ], 
+        "ProviderAccessoryUpdating": [
+            ""
+        ], 
+        "ProviderAccessoryWaitingForReader": [
+            ""
+        ], 
+        "ProviderAccessoryConnectingPrinter": [
+            ""
+        ], 
+        "ProviderAccessoryWaitingForPrinter": [
+            ""
+        ], 
+        "ProviderAborted": [
+            ""
+        ], 
+        "ProviderAbortedRefund": [
+            ""
+        ], 
+        "ProviderApproved": [
+            ""
+        ], 
+        "ProviderApprovedRefund": [
+            ""
+        ], 
+        "ProviderAccepted": [
+            ""
+        ], 
+        "ProviderAcceptedRefund": [
+            ""
+        ], 
+        "ProviderDeclined": [
+            ""
+        ], 
+        "ProviderDeclinedRefund": [
+            ""
+        ], 
+        "ProviderFailed": [
+            ""
+        ], 
+        "ProviderFailedRefund": [
+            ""
+        ], 
+        "ProviderInconclusive": [
+            ""
+        ], 
+        "ProviderInconclusiveRefund": [
+            ""
+        ], 
+        "Completed": [
+            ""
+        ], 
+        "Aborted": [
+            ""
+        ], 
+        "Failed": [
+            ""
+        ], 
+        "ProviderNotRefundable": [
+            ""
+        ], 
+        "ProviderTransactionQuerying": [
+            ""
+        ], 
+        "ProviderTransactionRegistering": [
+            ""
+        ], 
+        "ProviderAccessoryConfiguringConnectionLink": [
+            ""
+        ], 
+        "ProviderComponentPrinterSending": [
+            ""
+        ], 
+        "ProviderComponentPrinterSent": [
+            ""
+        ], 
+        "ProviderComponentPrinterAborted": [
+            ""
+        ], 
+        "ProviderComponentPrinterFailed": [
+            ""
+        ], 
+        "ReadingEMVCard": [
+            "", 
+            "", 
+            "Reading card...", 
+            ""
+        ], 
+        "RemoveCardWithStatus": [
+            "$reason1$", 
+            "$reason2$", 
+            "", 
+            "Remove card"
+        ], 
+        "RemoveCard": [
+            "", 
+            "", 
+            "Remove card", 
+            ""
+        ], 
+        "SwipeCard": [
+            "$amount$", 
+            "", 
+            "Swipe card", 
+            ""
+        ], 
+        "SwipeCardWithoutAmount": [
+            "", 
+            "", 
+            "Swipe card", 
+            ""
+        ], 
+        "TransactionAborting": [
+            "", 
+            "Aborting", 
+            "payment...", 
+            ""
+        ], 
+        "RefundAborting": [
+            "", 
+            "Aborting", 
+            "refund...", 
+            ""
+        ], 
+        "UpdatingDevice": [
+            "", 
+            "", 
+            "Updating...", 
+            ""
+        ], 
+        "UpdatingDeviceConfigurationUpdate": [
+            "Updating Config", 
+            "", 
+            "", 
+            "Please wait..."
+        ], 
+        "UpdatingDeviceFirmwareUpdate": [
+            "Updating Firmware", 
+            "", 
+            "", 
+            "Please wait..."
+        ], 
+        "UpdatingDeviceKeyInjection": [
+            "Generating Keys", 
+            "", 
+            "", 
+            "Please wait..."
+        ], 
+        "UpdatingDeviceSoftwareUpdate": [
+            "Updating Software", 
+            "", 
+            "", 
+            "Please wait..."
+        ], 
+        "CardNotSupported": [
+            "Card not", 
+            "supported!", 
+            "Try another", 
+            "or press cancel"
+        ], 
+        "AskingForTipConfirmation": [
+            "$amount$", 
+            "", 
+            "Add TIP?", 
+            " [X] No     [OK] Yes"
+        ], 
+        "ProviderComponentTippingAskingForTip": [
+            ""
+        ], 
+        "PresentOneCardOnly": [
+            "", 
+            "Present one", 
+            "card only", 
+            ""
+        ], 
+        "RemoveCardWithSignature": [
+            "Signature", 
+            "required", 
+            "", 
+            "Remove card"
+        ], 
+        "RemoveCardWithIdentification": [
+            "Identification", 
+            "required", 
+            "", 
+            "Remove card"
+        ], 
+        "RemoveCardWithProcessing": [
+            "Processing", 
+            "payment...", 
+            "", 
+            "Remove card"
+        ], 
+        "RemoveCardWithProcessingRefund": [
+            "Processing", 
+            "refund...", 
+            "", 
+            "Remove card"
+        ], 
+        "IdleKeepAlive": [
+            "", 
+            "", 
+            "Welcome", 
+            ""
+        ], 
+        "WaitingForProcessorApproval": [
+            ""
+        ]
+    }
+}

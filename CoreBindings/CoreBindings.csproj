@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62A279C0-330A-4C59-93E3-0A6401AB1124}</ProjectGuid>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CoreBindings</RootNamespace>
+    <AssemblyName>CoreBindings</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="framework\mpos.core.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="framework\libCocoaLumberjack.a">
+      <Kind>Static</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mpos.core-resources.bundle\AmazonRootCA.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\AmazonRootCA1.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\AmazonRootCA2.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\AmazonRootCA3.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\AmazonRootCA4.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\COMODOAddTrustServerCA.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\COMODOHigh-AssuranceSecureServerCA.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\COMODORSAAddTrustCA.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\COMODORSACertificationAuthority.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\ComodoUTNSGCCA.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\Info.plist" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\SFSRootCAG2.cer" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\checksums.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\countries.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\currencies.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\errors-40x1-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-20x4-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-40x2-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\prompts-vipa-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-20x4-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-40x2-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-de_DE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-en_US.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-es_ES.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-fi_FI.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-fr_FR.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-it_IT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-nl_BE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-pl_PL.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-pt_PT.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\reasons-vipa-sv_SE.json" />
+    <BundleResource Include="Resources\mpos.core-resources.bundle\schemes.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
