@@ -46,7 +46,14 @@ namespace PayworksIOS
 
             var viewController = ui.CreateTransactionViewControllerWithTransactionParameters(transactionParameters, (vc, result, transaction) =>
             {
+                this.DismissViewController(true, null);
 
+                var res = (MPUTransactionResult)result;
+                if(res == MPUTransactionResult.Approved) {
+                    sender.SetTitle("Payment was approved!", UIControlState.Normal);
+                } else {
+                    sender.SetTitle("Payment was aborted / declined", UIControlState.Normal);
+                }
             });
 
             var modalNav = new UINavigationController(viewController);

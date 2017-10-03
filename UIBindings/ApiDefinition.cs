@@ -222,10 +222,10 @@ namespace Paybutton
 namespace Paybutton
 {
     // typedef void (^MPUTransactionCompleted)(UIViewController * _Nonnull, MPUTransactionResult, MPTransaction * _Nullable);
-    delegate void MPUTransactionCompleted(UIViewController arg0, NSObject arg1, [NullAllowed] MPTransaction arg2);
+    delegate void MPUTransactionCompleted(UIViewController arg0, long arg1, [NullAllowed] MPTransaction arg2);
 
     // typedef void (^MPUPrintReceiptCompleted)(UIViewController * _Nonnull, MPUPrintReceiptResult);
-    delegate void MPUPrintReceiptCompleted(UIViewController arg0, NSObject arg1);
+    delegate void MPUPrintReceiptCompleted(UIViewController arg0, long arg1);
 
     // typedef void (^MPUSummaryCompleted)(UIViewController * _Nonnull);
     delegate void MPUSummaryCompleted(UIViewController arg0);
@@ -234,7 +234,7 @@ namespace Paybutton
     delegate void MPUSettingsCompleted(UIViewController arg0);
 
     // typedef void (^MPULoginCompleted)(UIViewController * _Nonnull, MPULoginResult);
-    delegate void MPULoginCompleted(UIViewController arg0, NSObject arg1);
+    delegate void MPULoginCompleted(UIViewController arg0, long arg1);
 
     // @interface MPUMposUi : NSObject
     [BaseType(typeof(NSObject))]
