@@ -12,7 +12,9 @@ namespace PayworksIOS
            // sender.SetTitle(MPOS.MPMpos.Version, UIControlState.Normal);
 
 
-            var provider = MPOS.MPMpos.TransactionProviderForMode(MPProviderMode.Mock, "sdlfkjsdlfkj", "asfajk;sflkj");
+          /*
+           *  CODE FOR THE TRANSACTION PROVIDER
+           * var provider = MPOS.MPMpos.TransactionProviderForMode(MPProviderMode.Mock, "sdlfkjsdlfkj", "asfajk;sflkj");
             var transactionParameters = MPOS.MPTransactionParameters.ChargeWithAmount(new Foundation.NSDecimalNumber("5.00"), MPCurrency.EUR, null);
 
             var accessoryParameters = MPOS.MPAccessoryParameters.ExternalAccessoryParametersWithFamily(MPAccessoryFamily.MiuraMPI, "com.miura.shuttle", null);
@@ -26,8 +28,10 @@ namespace PayworksIOS
             }, (transactionProcess, transaction, arg2, arg3) => {
                 
             }, (transactionProcess, transaction, transactionProcessDetails) => {
-                
-            });
+                sender.SetTitle(transaction.MerchantReceipt.PrettyPrinted(), UIControlState.Normal);
+            });*/
+
+
         }
 
         protected ViewController(IntPtr handle) : base(handle)

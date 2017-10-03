@@ -204,6 +204,40 @@ public enum MPTransactionMode : long
 }
 
 [Native]
+public enum MPAccessoryType : long
+{
+    /** Unkndown or not available */
+    Unknown = 0,
+    /** Mock */
+    Mock,
+
+    /** Miura Shuttle */
+    MiuraShuttle,
+    /** Miura M010 */
+    MiuraM010,
+    /** Miura M007 */
+    MiuraM007,
+
+    /** Verifone E105 */
+    VerifoneE105,
+    /** Verifone E315 */
+    VerifoneE315,
+    /** Verifone E335 */
+    VerifoneE335,
+    /** Verifone E355 */
+    VerifoneE355,
+    /** Verifone VX820 */
+    VerifoneVX820,
+    /** Sewoo LKP21 */
+    SewooLKP21,
+
+    /** BBPOS WisePad */
+    BBPOSWisePad,
+    /** BBPOS Chipper */
+    BBPOSChipper
+}
+
+[Native]
 public enum MPAccessoryFamily : long
 {
 

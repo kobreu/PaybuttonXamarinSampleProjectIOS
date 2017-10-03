@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayworksIOS", "PayworksIOS\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBindings", "CoreBindings\CoreBindings.csproj", "{62A279C0-330A-4C59-93E3-0A6401AB1124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UIBindings", "UIBindings\UIBindings.csproj", "{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -29,5 +31,13 @@ Global
 		{62A279C0-330A-4C59-93E3-0A6401AB1124}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{62A279C0-330A-4C59-93E3-0A6401AB1124}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{62A279C0-330A-4C59-93E3-0A6401AB1124}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Release|iPhone.Build.0 = Release|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

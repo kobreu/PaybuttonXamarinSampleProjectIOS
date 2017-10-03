@@ -113,6 +113,10 @@
       <Project>{62A279C0-330A-4C59-93E3-0A6401AB1124}</Project>
       <Name>CoreBindings</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UIBindings\UIBindings.csproj">
+      <Project>{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}</Project>
+      <Name>UIBindings</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
