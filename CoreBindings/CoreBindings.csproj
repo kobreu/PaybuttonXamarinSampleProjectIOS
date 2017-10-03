@@ -46,8 +46,16 @@
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="framework\libCocoaLumberjack.a">
+    <NativeReference Include="framework\cocoalumberjackuniversal.a">
       <Kind>Static</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="framework\mpos.comlinks.externalaccessory.framework">
+      <Kind>Framework</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
+    <NativeReference Include="framework\mpos.accessories.miura-shuttle.framework">
+      <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>

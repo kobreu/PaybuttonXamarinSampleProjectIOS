@@ -48,4 +48,29 @@ public enum MPCurrency : long
     EUR 
 }
 
+[Native]
+    public enum MPAccessoryFamily : long
+    {
+
+        /** Use a mock */
+        Mock = 0,
+
+        /** Use the Miura MPI devices  */
+        MiuraMPI,
+
+        /** Use the Verifone e-Series (except e105) */
+        VerifoneESeries,
+        /** Use the Verifone e-Series (except e105) that runs VIPA*/
+        VerifoneVIPA,
+        /** Use the Verifone e105 */
+        VerifoneE105,
+
+        /** Use the Sewoo printer */
+        Sewoo,
+
+        /** Use the BBPOS WisePad or WisePOS */
+        BBPOS,
+        /** Use the BBPOS Chipper */
+        BBPOSChipper
+    }
 

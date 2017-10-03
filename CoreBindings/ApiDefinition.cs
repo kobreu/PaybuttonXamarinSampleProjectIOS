@@ -38,11 +38,84 @@ namespace MPOS
         /** United Arab Emirates Dirham */
         EUR 
     }
+
+    [Native]
+    public enum MPAccessoryFamily : long
+    {
+
+        /** Use a mock */
+        Mock = 0,
+
+        /** Use the Miura MPI devices  */
+        MiuraMPI,
+
+        /** Use the Verifone e-Series (except e105) */
+        VerifoneESeries,
+        /** Use the Verifone e-Series (except e105) that runs VIPA*/
+        VerifoneVIPA,
+        /** Use the Verifone e105 */
+        VerifoneE105,
+
+        /** Use the Sewoo printer */
+        Sewoo,
+
+        /** Use the BBPOS WisePad or WisePOS */
+        BBPOS,
+        /** Use the BBPOS Chipper */
+        BBPOSChipper
+    }
+
 }
 
 namespace MPOS
 {
 
+
+    // @interface MPAccessory
+    [BaseType(typeof(NSObject))]
+    interface MPAccessory
+    {
+        // @property (readonly, assign, nonatomic) int type;
+        [Export("type")]
+        int Type { get; }
+
+        // @property (readonly, nonatomic, strong) MPAccessoryDetails * _Nonnull details;
+        // [Export("details", ArgumentSemantic.Strong)]
+        // MPAccessoryDetails Details { get; }
+
+        // @property (readonly, assign, nonatomic) int connectionType;
+        [Export("connectionType")]
+        int ConnectionType { get; }
+
+        // @property (readonly, nonatomic, strong) MPAccessoryParameters * _Nonnull parameters;
+        [Export("parameters", ArgumentSemantic.Strong)]
+        MPAccessoryParameters Parameters { get; }
+
+        // @property (readonly, assign, nonatomic) int connectionState;
+        [Export("connectionState")]
+        int ConnectionState { get; }
+
+        // @property (readonly, assign, nonatomic) int batteryState;
+        [Export("batteryState")]
+        int BatteryState { get; }
+
+        // @property (readonly, assign, nonatomic) int batteryLevel;
+        [Export("batteryLevel")]
+        int BatteryLevel { get; }
+
+        // @property (readonly, assign, nonatomic) int state;
+        [Export("state")]
+        int State { get; }
+
+        // @property (readonly, assign, nonatomic) int components;
+        [Export("components")]
+        int Components { get; }
+
+        // -(MPAccessoryComponent * _Nullable)componentForType:(id)component;
+        // [Export("componentForType:")]
+        // [return: NullAllowed]
+        // MPAccessoryComponent ComponentForType(NSObject component);
+    }
 
     // @interface MPAccessoryParameters : NSObject
     [BaseType(typeof(NSObject))]
@@ -72,7 +145,129 @@ namespace MPOS
         [Static]
         [Export("mockAccessoryParameters")]
         MPAccessoryParameters MockAccessoryParameters();
+
+        // +(instancetype _Nonnull)externalAccessoryParametersWithFamily:(id)family protocol:(NSString * _Nonnull)protocol optionals:(MPExternalAccessoryOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("externalAccessoryParametersWithFamily:protocol:optionals:")]
+        MPAccessoryParameters ExternalAccessoryParametersWithFamily(MPAccessoryFamily family, string protocol, [NullAllowed] MPExternalAccessoryOptionalsBlock optionalsBlock);
     }
+
+    // @interface MPTransaction
+    [BaseType(typeof(NSObject))]
+    interface MPTransaction
+    {
+        // @property (readonly, nonatomic, strong) int * _Nonnull amount;
+       // [Export("amount", ArgumentSemantic.Strong)]
+       // unsafe int* Amount { get; }
+
+        // @property (readonly, assign, nonatomic) int currency;
+        [Export("currency")]
+        int Currency { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable subject;
+       // [NullAllowed, Export("subject", ArgumentSemantic.Strong)]
+      //  unsafe int* Subject { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nonnull statementDescriptor;
+      //  [Export("statementDescriptor", ArgumentSemantic.Strong)]
+      //  unsafe int* StatementDescriptor { get; }
+
+        // @property (readonly, assign, nonatomic) int type;
+        [Export("type")]
+        int Type { get; }
+
+        // @property (readonly, assign, nonatomic) int mode;
+        [Export("mode")]
+        int Mode { get; }
+
+        // @property (readonly, assign, nonatomic) int captured;
+        [Export("captured")]
+        int Captured { get; }
+
+        // @property (readonly, nonatomic, strong) MPPaymentDetails * _Nonnull paymentDetails;
+        //[Export("paymentDetails", ArgumentSemantic.Strong)]
+        //MPPaymentDetails PaymentDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPRefundDetails * _Nonnull refundDetails;
+        //[Export("refundDetails", ArgumentSemantic.Strong)]
+       // MPRefundDetails RefundDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPClearingDetails * _Nonnull clearingDetails;
+        //[Export("clearingDetails", ArgumentSemantic.Strong)]
+        //MPClearingDetails ClearingDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPCardDetails * _Nonnull cardDetails;
+        //[Export("cardDetails", ArgumentSemantic.Strong)]
+        //MPCardDetails CardDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPShopperDetails * _Nonnull shopperDetails;
+        //[Export("shopperDetails", ArgumentSemantic.Strong)]
+        //MPShopperDetails ShopperDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPTransactionDetails * _Nonnull details;
+        //[Export("details", ArgumentSemantic.Strong)]
+        //MPTransactionDetails Details { get; }
+
+        // @property (readonly, assign, nonatomic) int status;
+        [Export("status")]
+        int Status { get; }
+
+        // @property (readonly, nonatomic, strong) MPStatusDetails * _Nullable statusDetails;
+        //[NullAllowed, Export("statusDetails", ArgumentSemantic.Strong)]
+        //MPStatusDetails StatusDetails { get; }
+
+        // @property (readonly, assign, nonatomic) int state;
+        [Export("state")]
+        int State { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable error;
+       // [NullAllowed, Export("error", ArgumentSemantic.Strong)]
+      //  unsafe int* Error { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable sessionIdentifier;
+       // [NullAllowed, Export("sessionIdentifier", ArgumentSemantic.Strong)]
+      //  unsafe int* SessionIdentifier { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable identifier;
+      //  [NullAllowed, Export("identifier", ArgumentSemantic.Strong)]
+      //  unsafe int* Identifier { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable groupIdentifier;
+      //  [NullAllowed, Export("groupIdentifier", ArgumentSemantic.Strong)]
+      //  unsafe int* GroupIdentifier { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable referencedTransactionIdentifier;
+       // [NullAllowed, Export("referencedTransactionIdentifier", ArgumentSemantic.Strong)]
+      //  unsafe int* ReferencedTransactionIdentifier { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable customIdentifier;
+      //  [NullAllowed, Export("customIdentifier", ArgumentSemantic.Strong)]
+      //  unsafe int* CustomIdentifier { get; }
+
+        // @property (readonly, nonatomic, strong) int * _Nullable created;
+      //  [NullAllowed, Export("created", ArgumentSemantic.Strong)]
+      //  unsafe int* Created { get; }
+
+        // -(id)canBeAborted;
+        [Export("canBeAborted")]
+        bool CanBeAborted(); 
+
+        // @property (readonly, nonatomic, strong) MPProcessingDetails * _Nonnull processingDetails;
+        //[Export("processingDetails", ArgumentSemantic.Strong)]
+        //MPProcessingDetails ProcessingDetails { get; }
+
+        // @property (readonly, nonatomic, strong) MPReceipt * _Nullable customerReceipt;
+        //[NullAllowed, Export("customerReceipt", ArgumentSemantic.Strong)]
+        //MPReceipt CustomerReceipt { get; }
+
+        // @property (readonly, nonatomic, strong) MPReceipt * _Nullable merchantReceipt;
+        //[NullAllowed, Export("merchantReceipt", ArgumentSemantic.Strong)]
+        //MPReceipt MerchantReceipt { get; }
+    }
+
+
+
+
 
     // @interface MPTransactionProcess : NSObject
     [BaseType(typeof(NSObject))]
@@ -91,8 +286,8 @@ namespace MPOS
         MPAccessory Accessory { get; }
 
         // @property (readonly, nonatomic, strong) MPTransactionProcessDetails * _Nonnull details;
-        [Export("details", ArgumentSemantic.Strong)]
-        MPTransactionProcessDetails Details { get; }
+       // [Export("details", ArgumentSemantic.Strong)]
+       // MPTransactionProcessDetails Details { get; }
 
         // -(void)continueWithCustomerSignature:(UIImage * _Nullable)signature verified:(BOOL)verified;
         [Export("continueWithCustomerSignature:verified:")]
@@ -107,8 +302,8 @@ namespace MPOS
         void ContinueWithCustomerIdentityVerified(bool verified);
 
         // -(void)continueWithSelectedApplication:(MPApplicationInformation * _Nonnull)application;
-        [Export("continueWithSelectedApplication:")]
-        void ContinueWithSelectedApplication(MPApplicationInformation application);
+       // [Export("continueWithSelectedApplication:")]
+      //  void ContinueWithSelectedApplication(MPApplicationInformation application);
 
         // -(void)continueCreditDebitSelectionWithCredit;
         [Export("continueCreditDebitSelectionWithCredit")]
@@ -120,13 +315,87 @@ namespace MPOS
 
         // -(BOOL)requestAbort;
         [Export("requestAbort")]
-        [Verify(MethodToProperty)]
-        bool RequestAbort { get; }
+        bool RequestAbort();
 
         // -(BOOL)canBeAborted;
         [Export("canBeAborted")]
-        [Verify(MethodToProperty)]
-        bool CanBeAborted { get; }
+        bool CanBeAborted();
+    }
+
+    // @interface MPTransactionActionSupport : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MPTransactionActionSupport
+    {
+    }
+
+    // @protocol MPExternalAccessoryOptionals <MPAccessoryOptionals>
+    [Protocol, Model]
+    [BaseType(typeof(MPAccessoryOptionals))]
+    interface MPExternalAccessoryOptionals
+    {
+        // @required @property (nonatomic) NSString * _Nullable namePrefix;
+        [Abstract]
+        [NullAllowed, Export("namePrefix")]
+        string NamePrefix { get; set; }
+    }
+
+    // @protocol MPAccessoryOptionals <NSObject>
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
+    interface MPAccessoryOptionals
+    {
+        // @required @property (nonatomic) NSArray * _Nullable idleText;
+        [Abstract]
+        [NullAllowed, Export("idleText", ArgumentSemantic.Assign)]
+        NSString[] IdleText { get; set; }
+
+        // @required @property (nonatomic) int locale;
+        [Abstract]
+        [Export("locale")]
+        int Locale { get; set; }
+
+        // @required @property (nonatomic) BOOL keepAlive;
+        [Abstract]
+        [Export("keepAlive")]
+        bool KeepAlive { get; set; }
+    }
+
+    // typedef void (^MPExternalAccessoryOptionalsBlock)(id<MPExternalAccessoryOptionals> _Nonnull);
+    delegate void MPExternalAccessoryOptionalsBlock(MPExternalAccessoryOptionals arg0);
+
+    // typedef void (^MPTransactionProcessRegistered)(MPTransactionProcess * _Nonnull, MPTransaction * _Nonnull);
+    delegate void MPTransactionProcessRegistered(MPTransactionProcess arg0, MPTransaction arg1);
+
+    // typedef void (^MPTransactionProcessStatusChanged)(MPTransactionProcess * _Nonnull, MPTransaction * _Nullable, MPTransactionProcessDetails * _Nonnull);
+    delegate void MPTransactionProcessStatusChanged(MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
+
+    // typedef void (^MPTransactionProcessActionRequired)(MPTransactionProcess * _Nonnull, MPTransaction * _Nonnull, int, MPTransactionActionSupport * _Nullable);
+    delegate void MPTransactionProcessActionRequired(MPTransactionProcess arg0, MPTransaction arg1, int arg2, [NullAllowed] MPTransactionActionSupport arg3);
+
+    // typedef void (^MPTransactionProcessCompleted)(MPTransactionProcess * _Nonnull, MPTransaction * _Nullable, MPTransactionProcessDetails * _Nonnull);
+    delegate void MPTransactionProcessCompleted(MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
+
+
+
+    // @interface MPTransactionProcessDetails : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MPTransactionProcessDetails
+    {
+        // @property (readonly, assign, nonatomic) MPTransactionProcessDetailsState state;
+       // [Export("state", ArgumentSemantic.Assign)]
+      //  MPTransactionProcessDetailsState State { get; }
+
+        // @property (readonly, assign, nonatomic) MPTransactionProcessDetailsStateDetails stateDetails;
+       // [Export("stateDetails", ArgumentSemantic.Assign)]
+       // MPTransactionProcessDetailsStateDetails StateDetails { get; }
+
+        // @property (readonly, nonatomic, strong) NSArray * _Nonnull information;
+        [Export("information", ArgumentSemantic.Strong)]
+        NSString[] Information { get; }
+
+        // @property (readonly, nonatomic, strong) NSError * _Nullable error;
+      //  [NullAllowed, Export("error", ArgumentSemantic.Strong)]
+      //  NSError Error { get; }
     }
 
 
@@ -236,12 +505,12 @@ namespace MPOS
     }
 
     // typedef void (^MPTransactionParametersOptionalsBlock)(id<MPTransactionParametersOptionals> _Nonnull);
-    delegate void MPTransactionParametersOptionalsBlock(IMPTransactionParametersOptionals arg0);
+    delegate void MPTransactionParametersOptionalsBlock(MPTransactionParametersOptionals arg0);
 
     // @protocol MPTransactionParametersOptionals <MPTransactionParametersChargeOptionals>
     [Protocol, Model]
     [BaseType(typeof(NSObject))]
-    interface IMPTransactionParametersOptionals : MPTransactionParametersChargeOptionals
+    interface MPTransactionParametersOptionals : MPTransactionParametersChargeOptionals
     {
     }
 
