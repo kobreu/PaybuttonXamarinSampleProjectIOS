@@ -46,12 +46,85 @@
       <Kind>Framework</Kind>
       <SmartLink>False</SmartLink>
     </NativeReference>
+    <NativeReference Include="framework\lockboxuniversal.a">
+      <Kind>Static</Kind>
+      <SmartLink>False</SmartLink>
+    </NativeReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CoreBindings\CoreBindings.csproj">
       <Project>{62A279C0-330A-4C59-93E3-0A6401AB1124}</Project>
       <Name>CoreBindings</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\Assets.car" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\FontAwesome.otf" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\Info.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\barclaycard.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\concardis.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mcashier.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\secureretail.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\yourbrand.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\de.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\en.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\es.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\fi.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\fr.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\it.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\0Uc-J7-8Z8-view-obv-bb-Uso.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\2x4-aD-h9q-view-Jop-Bh-2W8.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\3nF-e2-7Sw-view-7hx-jx-n54.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\8Fh-JA-fmz-view-o4S-FI-hfy.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\8W1-Ze-cDC-view-3Z0-nE-Lbd.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\C20-gy-D4f-view-iVk-Mw-fcK.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\GSf-1k-Sm3-view-k3N-at-5mm.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\Hbm-jk-O3Y-view-syQ-sy-CSi.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\Info.plist" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MNY-fl-Y33-view-eR3-e2-SGP.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPSummaryContainerViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUApplicationSelectionController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUErrorController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPULoadTransactionController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPULoginContainerViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPULoginController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPULoginMainController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPULoginNavigationController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUNewSummaryController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUOptionSelectionViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUPrintReceiptContainerViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUPrintReceiptController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUPrintReceiptMainController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUPrintReceiptNavigationController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSendReceiptController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSettingsContainerViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSettingsController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSettingsMainController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSettingsNavigationController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSummaryMainController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUSummaryNavigationController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUTransactionContainerViewController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUTransactionController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUTransactionMainController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\MPUTransactionNavigationController.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\ObW-AM-mRW-view-OoW-pq-isb.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\UIViewController-0Uc-J7-8Z8.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\UIViewController-aSd-7E-DYN.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\Vib-je-gIA-view-sGd-JC-zG5.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\Xp8-AL-ZpJ-view-fzV-Ub-WmU.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\Y80-wf-XPF-view-icD-Ij-EQ9.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\aSd-7E-DYN-view-oXS-Xq-v7C.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\c0A-nc-jMj-view-3kE-Dz-LqK.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\cYB-Gx-2Yk-view-FJq-Gz-p5T.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\eTK-kw-zGA-view-aKw-4s-bm2.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\flY-NL-7We-view-swU-cY-dnB.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\jde-kq-0L4-view-mAe-9O-UrL.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\ltS-ci-i5O-view-fC4-nY-oH6.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\wD5-Xg-kbO-view-rcD-T9-fSv.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\mpos-ui.storyboardc\zjR-XE-QfY-view-fD2-DE-s5g.nib" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\nl.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\pt.lproj\mpos-ui.strings" />
+    <BundleResource Include="Resources\mpos-ui-resources.bundle\sv.lproj\mpos-ui.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>

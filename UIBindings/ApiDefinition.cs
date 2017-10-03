@@ -4,20 +4,228 @@ using UIKit;
 using Foundation;
 using ObjCRuntime;
 using CoreGraphics;
-using MPOS
+using MPOS;
 
-namespace MPOSUI
+namespace Paybutton
 {
-    
+    [Native]
+    public enum MPUTransactionResult : long
+    {
+        Approved = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPUPrintReceiptResult : long
+    {
+        Successful = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPULoginResult : long
+    {
+        Successful = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPUApplicationName : long
+    {
+        Mcashier = 0,
+        Concardis,
+        SecureRetail,
+        YourBrand,
+        Barclaycard
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationSignatureCapture : long
+    {
+        Screen = 0,
+        Receipt
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationSummaryFeature : long
+    {
+        None = 0,
+        SendReceiptViaEmail = 1 << 0,
+        PrintReceipt = 1 << 1,
+        RefundTransaction = 1 << 2,
+        CaptureTransaction = 1 << 3
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationResultDisplayBehavior : long
+    {
+        DisplayIndefinitely,
+        CloseAfterTimeout
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationPaymentMethod : long
+    {
+        Card = 1 << 0,
+        WalletAlipay = 1 << 1
+    }
+
+    // from Core. No idea why they have to be placed here
+    [Native]
+    public enum MPProviderMode : long
+    {
+        Unknown = 0,
+        Live,
+        Test,
+        Mock,
+        Jungle,
+        LiveFixed,
+        TestFixed
+    }
+
+    [Native]
+    public enum MPAccessoryFamily : long
+    {
+
+        /** Use a mock */
+        Mock = 0,
+
+        /** Use the Miura MPI devices  */
+        MiuraMPI,
+
+        /** Use the Verifone e-Series (except e105) */
+        VerifoneESeries,
+        /** Use the Verifone e-Series (except e105) that runs VIPA*/
+        VerifoneVIPA,
+        /** Use the Verifone e105 */
+        VerifoneE105,
+
+        /** Use the Sewoo printer */
+        Sewoo,
+
+        /** Use the BBPOS WisePad or WisePOS */
+        BBPOS,
+        /** Use the BBPOS Chipper */
+        BBPOSChipper
+    }
+
+    [Native]
+    public enum MPCurrency : ulong
+    {
+        /** An unknown currency. Is actually part of the ISO standard, but should be treated as an error. */
+        Unknown,
+        /** United Arab Emirates Dirham */
+        AED,
+        /** Argentine Peso */
+        ARS,
+        /** Australian Dollar */
+        AUD,
+        /** Azerbaijani Manat */
+        AZN,
+        /** Bulgarian Lev */
+        BGN,
+        /** Bahraini Dinar */
+        BHD,
+        /** Brazilian Real */
+        BRL,
+        /** Canadian Dollar */
+        CAD,
+        /** Swiss Franc */
+        CHF,
+        /** Chinese Yuan */
+        CNY,
+        /** Colombian Peso */
+        COP,
+        /** Czech Koruna */
+        CZK,
+        /** Danish Krone */
+        DKK,
+        /** Egyptian Pound */
+        EGP,
+        /** Euro */
+        EUR,
+        /** Pound Sterling */
+        GBP,
+        /** Ghanaian Cedi */
+        GHS,
+        /** Hong Kong Dollars */
+        HKD,
+        /** Croatian Kuna */
+        HRK,
+        /** Hungarian Forint */
+        HUF,
+        /** Israeli New Shekel */
+        ILS,
+        /** Indian Rupee */
+        INR,
+        /** Japanese Yen */
+        JPY,
+        /** South Korean Won */
+        KRW,
+        /** Kuwaiti Dinar */
+        KWD,
+        /** Moroccan Dirham */
+        MAD,
+        /** Mexican Peso */
+        MXN,
+        /** Malaysian Ringgit */
+        MYR,
+        /** Nigerian Naira */
+        NGN,
+        /** Norwegian Krone */
+        NOK,
+        /** New Zealand Dollar */
+        NZD,
+        /** Omani Rial */
+        OMR,
+        /** Philippine Peso */
+        PHP,
+        /** Pakistani Rupee */
+        PKR,
+        /** Polish Zloty */
+        PLN,
+        /** Qatari Rial */
+        QAR,
+        /** Romanian Leu */
+        RON,
+        /** Serbian Dinar */
+        RSD,
+        /** Russian Ruble */
+        RUB,
+        /** Saudi Riyal */
+        SAR,
+        /** Swedish Krona */
+        SEK,
+        /** Singapore Dollar */
+        SGD,
+        /** Thai Baht */
+        THB,
+        /** Tunisian Dinar */
+        TND,
+        /** Turkish Lira */
+        TRY,
+        /** New Taiwan Dollar */
+        TWD,
+        /** Ukrainian Hryvnia */
+        UAH,
+        /** US Dollar */
+        USD,
+        /** Vietnamese Dong */
+        VND,
+        /** South African Rand */
+        ZAR
+    }
+
+    // end enums from core.
 }
 
-namespace MPOSUI
+namespace Paybutton
 {
     // typedef void (^MPUTransactionCompleted)(UIViewController * _Nonnull, MPUTransactionResult, MPTransaction * _Nullable);
-    delegate void MPUTransactionCompleted(UIViewController arg0, MPUTransactionResult arg1, [NullAllowed] MPTransaction arg2);
+    delegate void MPUTransactionCompleted(UIViewController arg0, NSObject arg1, [NullAllowed] MPTransaction arg2);
 
     // typedef void (^MPUPrintReceiptCompleted)(UIViewController * _Nonnull, MPUPrintReceiptResult);
-    delegate void MPUPrintReceiptCompleted(UIViewController arg0, MPUPrintReceiptResult arg1);
+    delegate void MPUPrintReceiptCompleted(UIViewController arg0, NSObject arg1);
 
     // typedef void (^MPUSummaryCompleted)(UIViewController * _Nonnull);
     delegate void MPUSummaryCompleted(UIViewController arg0);
@@ -26,7 +234,7 @@ namespace MPOSUI
     delegate void MPUSettingsCompleted(UIViewController arg0);
 
     // typedef void (^MPULoginCompleted)(UIViewController * _Nonnull, MPULoginResult);
-    delegate void MPULoginCompleted(UIViewController arg0, MPULoginResult arg1);
+    delegate void MPULoginCompleted(UIViewController arg0, NSObject arg1);
 
     // @interface MPUMposUi : NSObject
     [BaseType(typeof(NSObject))]
@@ -38,11 +246,11 @@ namespace MPOSUI
 
         // @property (nonatomic, strong) int * _Nullable transactionProvider;
         [NullAllowed, Export("transactionProvider", ArgumentSemantic.Strong)]
-        unsafe int* TransactionProvider { get; set; }
+        MPTransactionProvider TransactionProvider { get; set; }
 
         // @property (nonatomic, strong) int * _Nullable transactionProcessDetails;
         [NullAllowed, Export("transactionProcessDetails", ArgumentSemantic.Strong)]
-        unsafe int* TransactionProcessDetails { get; set; }
+        MPTransactionProcessDetails TransactionProcessDetails { get; set; }
 
         // @property (nonatomic, strong) NSError * _Nullable error;
         [NullAllowed, Export("error", ArgumentSemantic.Strong)]
@@ -55,8 +263,7 @@ namespace MPOSUI
         // +(NSString * _Nonnull)version;
         [Static]
         [Export("version")]
-        [Verify(MethodToProperty)]
-        string Version { get; }
+        string Version(); 
 
         // +(instancetype _Nullable)sharedInitializedInstance;
         [Static]
@@ -67,7 +274,7 @@ namespace MPOSUI
         // +(instancetype _Nonnull)initializeWithProviderMode:(id)providerMode merchantIdentifier:(NSString * _Nonnull)merchantIdentifier merchantSecret:(NSString * _Nonnull)merchantSecret;
         [Static]
         [Export("initializeWithProviderMode:merchantIdentifier:merchantSecret:")]
-        MPUMposUi InitializeWithProviderMode(NSObject providerMode, string merchantIdentifier, string merchantSecret);
+        MPUMposUi InitializeWithProviderMode(MPProviderMode providerMode, string merchantIdentifier, string merchantSecret);
 
         // +(instancetype _Nonnull)initializeWithApplication:(MPUApplicationName)applicationName integratorIdentifier:(NSString * _Nonnull)integratorIdentifier __attribute__((deprecated("Use initializeWithProviderMode:application:integratorIdentifier instead")));
         [Static]
@@ -77,7 +284,7 @@ namespace MPOSUI
         // +(instancetype _Nonnull)initializeWithProviderMode:(id)providerMode application:(MPUApplicationName)applicationName integratorIdentifier:(NSString * _Nonnull)integratorIdentifier;
         [Static]
         [Export("initializeWithProviderMode:application:integratorIdentifier:")]
-        MPUMposUi InitializeWithProviderMode(NSObject providerMode, MPUApplicationName applicationName, string integratorIdentifier);
+        MPUMposUi InitializeWithProviderMode(MPProviderMode providerMode, MPUApplicationName applicationName, string integratorIdentifier);
 
         // -(UIViewController * _Nonnull)createTransactionViewControllerWithSessionIdentifier:(NSString * _Nonnull)sessionIdentifier completed:(MPUTransactionCompleted _Nonnull)completed;
         [Export("createTransactionViewControllerWithSessionIdentifier:completed:")]
@@ -85,7 +292,7 @@ namespace MPOSUI
 
         // -(UIViewController * _Nonnull)createChargeTransactionViewControllerWithAmount:(NSDecimalNumber * _Nonnull)amount currency:(id)currency subject:(NSString * _Nullable)subject customIdentifier:(NSString * _Nullable)customIdentifier completed:(MPUTransactionCompleted _Nonnull)completed __attribute__((deprecated("Use createTransactionViewControllerWithTransactionParameters:completed: instead")));
         [Export("createChargeTransactionViewControllerWithAmount:currency:subject:customIdentifier:completed:")]
-        UIViewController CreateChargeTransactionViewControllerWithAmount(NSDecimalNumber amount, NSObject currency, [NullAllowed] string subject, [NullAllowed] string customIdentifier, MPUTransactionCompleted completed);
+        UIViewController CreateChargeTransactionViewControllerWithAmount(NSDecimalNumber amount, MPCurrency currency, [NullAllowed] string subject, [NullAllowed] string customIdentifier, MPUTransactionCompleted completed);
 
         // -(UIViewController * _Nonnull)createRefundTransactionViewControllerWithTransactionIdentifer:(NSString * _Nonnull)transactionIndentifier subject:(NSString * _Nullable)subject customIdentifier:(NSString * _Nullable)customIdentifier completed:(MPUTransactionCompleted _Nonnull)completed __attribute__((deprecated("Use createTransactionViewControllerWithTransactionParameters:completed: instead")));
         [Export("createRefundTransactionViewControllerWithTransactionIdentifer:subject:customIdentifier:completed:")]
@@ -93,11 +300,11 @@ namespace MPOSUI
 
         // -(UIViewController * _Nonnull)createTransactionViewControllerWithTransactionParameters:(id)transactionParameters completed:(MPUTransactionCompleted _Nonnull)completed;
         [Export("createTransactionViewControllerWithTransactionParameters:completed:")]
-        UIViewController CreateTransactionViewControllerWithTransactionParameters(NSObject transactionParameters, MPUTransactionCompleted completed);
+        UIViewController CreateTransactionViewControllerWithTransactionParameters(MPTransactionParameters transactionParameters, MPUTransactionCompleted completed);
 
         // -(UIViewController * _Nonnull)createTransactionViewControllerWithTransactionParameters:(id)transactionParameters processParameters:(id)processParameters completed:(MPUTransactionCompleted _Nonnull)completed;
         [Export("createTransactionViewControllerWithTransactionParameters:processParameters:completed:")]
-        UIViewController CreateTransactionViewControllerWithTransactionParameters(NSObject transactionParameters, NSObject processParameters, MPUTransactionCompleted completed);
+        UIViewController CreateTransactionViewControllerWithTransactionParameters(MPTransactionParameters transactionParameters, MPTransactionProcessParameters processParameters, MPUTransactionCompleted completed);
 
         // -(UIViewController * _Nonnull)createSummaryViewControllerWithTransactionIdentifier:(NSString * _Nonnull)transacitonIdentifier completed:(MPUSummaryCompleted _Nonnull)completed;
         [Export("createSummaryViewControllerWithTransactionIdentifier:completed:")]
@@ -121,8 +328,7 @@ namespace MPOSUI
 
         // -(BOOL)isApplicationLoggedIn;
         [Export("isApplicationLoggedIn")]
-        [Verify(MethodToProperty)]
-        bool IsApplicationLoggedIn { get; }
+        bool IsApplicationLoggedIn();
     }
 
     // @interface MPUMposUiAppearance : NSObject
@@ -182,14 +388,13 @@ namespace MPOSUI
         UIColor ActionButtonTextColor { get; set; }
     }
 
-    [Static]
-    [Verify(ConstantsInterfaceAssociation)]
+    /*[Static]
     partial interface Constants
     {
         // extern const NSTimeInterval MPUMposUiConfigurationResultDisplayCloseTimeout;
         [Field("MPUMposUiConfigurationResultDisplayCloseTimeout", "__Internal")]
         double MPUMposUiConfigurationResultDisplayCloseTimeout { get; }
-    }
+    }*/
 
     // @interface MPUMposUiConfiguration : NSObject
     [BaseType(typeof(NSObject))]
@@ -197,19 +402,19 @@ namespace MPOSUI
     {
         // @property (assign, nonatomic) int terminalFamily __attribute__((deprecated("Use terminalParameters instead!")));
         [Export("terminalFamily")]
-        int TerminalFamily { get; set; }
+        MPAccessoryFamily TerminalFamily { get; set; }
 
         // @property (nonatomic, strong) int * _Nonnull terminalParameters;
         [Export("terminalParameters", ArgumentSemantic.Strong)]
-        unsafe int* TerminalParameters { get; set; }
+        MPAccessoryParameters TerminalParameters { get; set; }
 
         // @property (assign, nonatomic) int printerFamily __attribute__((deprecated("Use printerParameters instead!")));
         [Export("printerFamily")]
-        int PrinterFamily { get; set; }
+        MPAccessoryFamily PrinterFamily { get; set; }
 
         // @property (nonatomic, strong) int * _Nonnull printerParameters;
         [Export("printerParameters", ArgumentSemantic.Strong)]
-        unsafe int* PrinterParameters { get; set; }
+        MPAccessoryParameters PrinterParameters { get; set; }
 
         // @property (nonatomic, strong) MPUMposUiAppearance * _Nonnull appearance;
         [Export("appearance", ArgumentSemantic.Strong)]

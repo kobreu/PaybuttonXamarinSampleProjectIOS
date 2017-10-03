@@ -29,9 +29,31 @@ namespace PayworksIOS
                 
             }, (transactionProcess, transaction, transactionProcessDetails) => {
                 sender.SetTitle(transaction.MerchantReceipt.PrettyPrinted(), UIControlState.Normal);
-            });*/
+            });
 
+            * END CODE FOR TRANSACTION PROVIDER
+            */
 
+            /* START CODE FOR PAYBUTTON */
+
+            var ui = Paybutton.MPUMposUi.InitializeWithProviderMode(MPProviderMode.Mock, "alskdj", "akjs");
+
+            var accessoryParameters = MPOS.MPAccessoryParameters.ExternalAccessoryParametersWithFamily(MPAccessoryFamily.MiuraMPI, "com.miura.shuttle", null);
+            var transactionParameters = MPOS.MPTransactionParameters.ChargeWithAmount(new Foundation.NSDecimalNumber("5.00"), MPCurrency.EUR, null);
+
+            ui.Configuration.TerminalParameters = accessoryParameters;
+            ui.Configuration.SummaryFeatures = MPUMposUiConfigurationSummaryFeature.SendReceiptViaEmail;
+
+            var viewController = ui.CreateTransactionViewControllerWithTransactionParameters(transactionParameters, (vc, result, transaction) =>
+            {
+
+            });
+
+            var modalNav = new UINavigationController(viewController);
+            modalNav.NavigationBar.BarStyle = UIBarStyle.Black;
+            modalNav.ModalPresentationStyle = UIModalPresentationStyle.FormSheet;
+
+            this.PresentViewController(modalNav, true, null);
         }
 
         protected ViewController(IntPtr handle) : base(handle)
