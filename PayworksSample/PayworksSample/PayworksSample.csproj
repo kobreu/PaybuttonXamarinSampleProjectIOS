@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{1BB1AFA2-20E7-4BA2-AB92-210F55102030}</ProjectGuid>
+    <ProjectGuid>{8887010C-D0CB-4064-BC8F-A9B0C11152ED}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PayworksIOS</RootNamespace>
-    <AssemblyName>PayworksIOS</AssemblyName>
+    <RootNamespace>PayworksSample</RootNamespace>
+    <AssemblyName>PayworksSample</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
@@ -22,15 +22,15 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
-    <IOSDebuggerPort>43618</IOSDebuggerPort>
+    <IOSDebuggerPort>62055</IOSDebuggerPort>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchExtraArgs>-gcc_flags "-licucore -ObjC" </MtouchExtraArgs>
+    <MtouchExtraArgs>-gcc_flags "-licucore -ObjC"</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType></DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\iPhone\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -66,18 +66,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <IOSDebuggerPort>48693</IOSDebuggerPort>
+    <IOSDebuggerPort>26352</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-<MtouchExtraArgs>-gcc_flags "-licucore -ObjC -framework SystemConfiguration -framework ExternalAccessory -framework MobileCoreServices"</MtouchExtraArgs>
+    <MtouchExtraArgs>-gcc_flags "-licucore -ObjC -framework SystemConfiguration -framework ExternalAccessory -framework MobileCoreServices"</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -109,13 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoreBindings\CoreBindings.csproj">
-      <Project>{62A279C0-330A-4C59-93E3-0A6401AB1124}</Project>
-      <Name>CoreBindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UIBindings\UIBindings.csproj">
-      <Project>{D055E51B-AD2F-49BF-8ED2-CCE97BC63F0D}</Project>
-      <Name>UIBindings</Name>
+    <ProjectReference Include="..\..\PayworksBindings\PayworksBindings\PayworksBindings.csproj">
+      <Project>{2C165475-BC53-4658-BD09-5D8C0A198613}</Project>
+      <Name>PayworksBindings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

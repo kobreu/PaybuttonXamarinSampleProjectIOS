@@ -905,6 +905,221 @@ namespace MPOS
 
 }
 
+namespace Paybutton
+{
+    // Paybutton
+
+    [Native]
+    public enum MPUTransactionResult : long
+    {
+        Approved = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPUPrintReceiptResult : long
+    {
+        Successful = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPULoginResult : long
+    {
+        Successful = 0,
+        Failed
+    }
+
+    [Native]
+    public enum MPUApplicationName : long
+    {
+        Mcashier = 0,
+        Concardis,
+        SecureRetail,
+        YourBrand,
+        Barclaycard
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationSignatureCapture : long
+    {
+        Screen = 0,
+        Receipt
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationSummaryFeature : long
+    {
+        None = 0,
+        SendReceiptViaEmail = 1 << 0,
+        PrintReceipt = 1 << 1,
+        RefundTransaction = 1 << 2,
+        CaptureTransaction = 1 << 3
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationResultDisplayBehavior : long
+    {
+        DisplayIndefinitely,
+        CloseAfterTimeout
+    }
+
+    [Native]
+    public enum MPUMposUiConfigurationPaymentMethod : long
+    {
+        Card = 1 << 0,
+        WalletAlipay = 1 << 1
+    }
+
+    // from Core. No idea why they have to be placed here
+    [Native]
+    public enum MPProviderMode : long
+    {
+        Unknown = 0,
+        Live,
+        Test,
+        Mock,
+        Jungle,
+        LiveFixed,
+        TestFixed
+    }
+
+    [Native]
+    public enum MPAccessoryFamily : long
+    {
+
+        /** Use a mock */
+        Mock = 0,
+
+        /** Use the Miura MPI devices  */
+        MiuraMPI,
+
+        /** Use the Verifone e-Series (except e105) */
+        VerifoneESeries,
+        /** Use the Verifone e-Series (except e105) that runs VIPA*/
+        VerifoneVIPA,
+        /** Use the Verifone e105 */
+        VerifoneE105,
+
+        /** Use the Sewoo printer */
+        Sewoo,
+
+        /** Use the BBPOS WisePad or WisePOS */
+        BBPOS,
+        /** Use the BBPOS Chipper */
+        BBPOSChipper
+    }
+
+    [Native]
+    public enum MPCurrency : ulong
+    {
+        /** An unknown currency. Is actually part of the ISO standard, but should be treated as an error. */
+        Unknown,
+        /** United Arab Emirates Dirham */
+        AED,
+        /** Argentine Peso */
+        ARS,
+        /** Australian Dollar */
+        AUD,
+        /** Azerbaijani Manat */
+        AZN,
+        /** Bulgarian Lev */
+        BGN,
+        /** Bahraini Dinar */
+        BHD,
+        /** Brazilian Real */
+        BRL,
+        /** Canadian Dollar */
+        CAD,
+        /** Swiss Franc */
+        CHF,
+        /** Chinese Yuan */
+        CNY,
+        /** Colombian Peso */
+        COP,
+        /** Czech Koruna */
+        CZK,
+        /** Danish Krone */
+        DKK,
+        /** Egyptian Pound */
+        EGP,
+        /** Euro */
+        EUR,
+        /** Pound Sterling */
+        GBP,
+        /** Ghanaian Cedi */
+        GHS,
+        /** Hong Kong Dollars */
+        HKD,
+        /** Croatian Kuna */
+        HRK,
+        /** Hungarian Forint */
+        HUF,
+        /** Israeli New Shekel */
+        ILS,
+        /** Indian Rupee */
+        INR,
+        /** Japanese Yen */
+        JPY,
+        /** South Korean Won */
+        KRW,
+        /** Kuwaiti Dinar */
+        KWD,
+        /** Moroccan Dirham */
+        MAD,
+        /** Mexican Peso */
+        MXN,
+        /** Malaysian Ringgit */
+        MYR,
+        /** Nigerian Naira */
+        NGN,
+        /** Norwegian Krone */
+        NOK,
+        /** New Zealand Dollar */
+        NZD,
+        /** Omani Rial */
+        OMR,
+        /** Philippine Peso */
+        PHP,
+        /** Pakistani Rupee */
+        PKR,
+        /** Polish Zloty */
+        PLN,
+        /** Qatari Rial */
+        QAR,
+        /** Romanian Leu */
+        RON,
+        /** Serbian Dinar */
+        RSD,
+        /** Russian Ruble */
+        RUB,
+        /** Saudi Riyal */
+        SAR,
+        /** Swedish Krona */
+        SEK,
+        /** Singapore Dollar */
+        SGD,
+        /** Thai Baht */
+        THB,
+        /** Tunisian Dinar */
+        TND,
+        /** Turkish Lira */
+        TRY,
+        /** New Taiwan Dollar */
+        TWD,
+        /** Ukrainian Hryvnia */
+        UAH,
+        /** US Dollar */
+        USD,
+        /** Vietnamese Dong */
+        VND,
+        /** South African Rand */
+        ZAR
+    }
+
+    // end enums from core.
+}
+
 namespace MPOS
 {
 
@@ -2099,35 +2314,35 @@ namespace MPOS
     }
 
     // typedef void (^MPAccessoryComponentTippingAskForTipSuccess)(MPAccessoryComponentTipping * _Nonnull, NSDecimalNumber * _Nonnull);
-   /* delegate void MPAccessoryComponentTippingAskForTipSuccess(MPAccessoryComponentTipping arg0, NSDecimalNumber arg1);
+    /* delegate void MPAccessoryComponentTippingAskForTipSuccess(MPAccessoryComponentTipping arg0, NSDecimalNumber arg1);
 
-    // typedef void (^MPAccessoryComponentTippingAskForTipFailure)(MPAccessoryComponentTipping * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentTippingAskForTipFailure(MPAccessoryComponentTipping arg0, NSError arg1);
+     // typedef void (^MPAccessoryComponentTippingAskForTipFailure)(MPAccessoryComponentTipping * _Nonnull, NSError * _Nonnull);
+     delegate void MPAccessoryComponentTippingAskForTipFailure(MPAccessoryComponentTipping arg0, NSError arg1);
 
-    // typedef void (^MPAccessoryComponentTippingAskForTipAbort)(MPAccessoryComponentTipping * _Nonnull);
-    delegate void MPAccessoryComponentTippingAskForTipAbort(MPAccessoryComponentTipping arg0);
+     // typedef void (^MPAccessoryComponentTippingAskForTipAbort)(MPAccessoryComponentTipping * _Nonnull);
+     delegate void MPAccessoryComponentTippingAskForTipAbort(MPAccessoryComponentTipping arg0);
 
-    // typedef void (^MPAccessoryComponentTippingAskSuccess)(MPAccessoryComponentTipping * _Nonnull, NSDecimalNumber * _Nonnull);
-    delegate void MPAccessoryComponentTippingAskSuccess(MPAccessoryComponentTipping arg0, NSDecimalNumber arg1);
+     // typedef void (^MPAccessoryComponentTippingAskSuccess)(MPAccessoryComponentTipping * _Nonnull, NSDecimalNumber * _Nonnull);
+     delegate void MPAccessoryComponentTippingAskSuccess(MPAccessoryComponentTipping arg0, NSDecimalNumber arg1);
 
-    // typedef void (^MPAccessoryComponentTippingAskFailure)(MPAccessoryComponentTipping * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentTippingAskFailure(MPAccessoryComponentTipping arg0, NSError arg1);
+     // typedef void (^MPAccessoryComponentTippingAskFailure)(MPAccessoryComponentTipping * _Nonnull, NSError * _Nonnull);
+     delegate void MPAccessoryComponentTippingAskFailure(MPAccessoryComponentTipping arg0, NSError arg1);
 
-    // typedef void (^MPAccessoryComponentTippingAskAbort)(MPAccessoryComponentTipping * _Nonnull);
-    delegate void MPAccessoryComponentTippingAskAbort(MPAccessoryComponentTipping arg0);*/
+     // typedef void (^MPAccessoryComponentTippingAskAbort)(MPAccessoryComponentTipping * _Nonnull);
+     delegate void MPAccessoryComponentTippingAskAbort(MPAccessoryComponentTipping arg0);*/
 
     // @interface MPAccessoryComponentTipping : MPAccessoryComponent
-   /* [BaseType(typeof(MPAccessoryComponent))]
-    interface MPAccessoryComponentTipping
-    {
-        // -(void)askForTipForAmount:(NSDecimalNumber * _Nonnull)transactionAmmount currency:(id)currency suggestedTip:(NSDecimalNumber * _Nullable)suggestedTip success:(MPAccessoryComponentTippingAskForTipSuccess _Nonnull)success abort:(MPAccessoryComponentTippingAskForTipAbort _Nonnull)abort failure:(MPAccessoryComponentTippingAskForTipFailure _Nonnull)failure __attribute__((deprecated("Use askForTipWithParameters:success:abort:failure: method")));
-        [Export("askForTipForAmount:currency:suggestedTip:success:abort:failure:")]
-        void AskForTipForAmount(NSDecimalNumber transactionAmmount, NSObject currency, [NullAllowed] NSDecimalNumber suggestedTip, MPAccessoryComponentTippingAskForTipSuccess success, MPAccessoryComponentTippingAskForTipAbort abort, MPAccessoryComponentTippingAskForTipFailure failure);
+    /* [BaseType(typeof(MPAccessoryComponent))]
+     interface MPAccessoryComponentTipping
+     {
+         // -(void)askForTipForAmount:(NSDecimalNumber * _Nonnull)transactionAmmount currency:(id)currency suggestedTip:(NSDecimalNumber * _Nullable)suggestedTip success:(MPAccessoryComponentTippingAskForTipSuccess _Nonnull)success abort:(MPAccessoryComponentTippingAskForTipAbort _Nonnull)abort failure:(MPAccessoryComponentTippingAskForTipFailure _Nonnull)failure __attribute__((deprecated("Use askForTipWithParameters:success:abort:failure: method")));
+         [Export("askForTipForAmount:currency:suggestedTip:success:abort:failure:")]
+         void AskForTipForAmount(NSDecimalNumber transactionAmmount, NSObject currency, [NullAllowed] NSDecimalNumber suggestedTip, MPAccessoryComponentTippingAskForTipSuccess success, MPAccessoryComponentTippingAskForTipAbort abort, MPAccessoryComponentTippingAskForTipFailure failure);
 
-        // -(void)askForTipWithParameters:(MPAccessoryComponentTippingParameters * _Nonnull)parameters success:(MPAccessoryComponentTippingAskSuccess _Nonnull)success abort:(MPAccessoryComponentTippingAskAbort _Nonnull)abort failure:(MPAccessoryComponentTippingAskFailure _Nonnull)failure;
-        [Export("askForTipWithParameters:success:abort:failure:")]
-        void AskForTipWithParameters(MPAccessoryComponentTippingParameters parameters, MPAccessoryComponentTippingAskSuccess success, MPAccessoryComponentTippingAskAbort abort, MPAccessoryComponentTippingAskFailure failure);
-    }*/
+         // -(void)askForTipWithParameters:(MPAccessoryComponentTippingParameters * _Nonnull)parameters success:(MPAccessoryComponentTippingAskSuccess _Nonnull)success abort:(MPAccessoryComponentTippingAskAbort _Nonnull)abort failure:(MPAccessoryComponentTippingAskFailure _Nonnull)failure;
+         [Export("askForTipWithParameters:success:abort:failure:")]
+         void AskForTipWithParameters(MPAccessoryComponentTippingParameters parameters, MPAccessoryComponentTippingAskSuccess success, MPAccessoryComponentTippingAskAbort abort, MPAccessoryComponentTippingAskFailure failure);
+     }*/
 
     // @protocol MPAccessoryComponentInteractionAskForNumberOptionals <NSObject>
     [Protocol, Model]
@@ -2164,34 +2379,34 @@ namespace MPOS
     //delegate void MPAccessoryComponentInteractionAskForNumberOptionals (MPAccessoryComponentInteractionAskForNumberOptionals arg0);
 
     // @interface MPAccessoryComponentInteractionAskForNumberParameters : NSObject
-    [BaseType (typeof(NSObject))]
+    [BaseType(typeof(NSObject))]
     interface MPAccessoryComponentInteractionAskForNumberParameters
     {
         // +(instancetype _Nonnull)parametersWithPrompt:(MPAccessoryComponentInteractionPrompt)prompt optionals:(MPAccessoryComponentInteractionAskForNumberOptionals _Nullable)optionalsBlock;
         [Static]
-        [Export ("parametersWithPrompt:optionals:")]
-        MPAccessoryComponentInteractionAskForNumberParameters ParametersWithPrompt (MPAccessoryComponentInteractionPrompt prompt, [NullAllowed] MPAccessoryComponentInteractionAskForNumberOptionals optionalsBlock);
+        [Export("parametersWithPrompt:optionals:")]
+        MPAccessoryComponentInteractionAskForNumberParameters ParametersWithPrompt(MPAccessoryComponentInteractionPrompt prompt, [NullAllowed] MPAccessoryComponentInteractionAskForNumberOptionals optionalsBlock);
 
         // +(instancetype _Nonnull)parametersWithPromptIndexes:(NSArray * _Nonnull)promptIndexes optionals:(MPAccessoryComponentInteractionAskForNumberOptionals _Nullable)optionalsBlock;
         [Static]
-        [Export ("parametersWithPromptIndexes:optionals:")]
-        MPAccessoryComponentInteractionAskForNumberParameters ParametersWithPromptIndexes (string[] promptIndexes, [NullAllowed] MPAccessoryComponentInteractionAskForNumberOptionals optionalsBlock);
+        [Export("parametersWithPromptIndexes:optionals:")]
+        MPAccessoryComponentInteractionAskForNumberParameters ParametersWithPromptIndexes(string[] promptIndexes, [NullAllowed] MPAccessoryComponentInteractionAskForNumberOptionals optionalsBlock);
     }
 
     // @protocol MPAccessoryComponentInteractionAskForConfirmationParametersOptionals <NSObject>
     [Protocol, Model]
-    [BaseType (typeof(NSObject))]
+    [BaseType(typeof(NSObject))]
     interface MPAccessoryComponentInteractionAskForConfirmationParametersOptionals
     {
         // @required -(void)setCenterText:(BOOL)centered;
         [Abstract]
-        [Export ("setCenterText:")]
-        void SetCenterText (bool centered);
+        [Export("setCenterText:")]
+        void SetCenterText(bool centered);
 
         // @required -(void)setShowIdleScreen:(BOOL)showIdleScreen;
         [Abstract]
-        [Export ("setShowIdleScreen:")]
-        void SetShowIdleScreen (bool showIdleScreen);
+        [Export("setShowIdleScreen:")]
+        void SetShowIdleScreen(bool showIdleScreen);
 
         // @required -(void)setConfirmationKeys:(MPAccessoryComponentInteractionConfirmationKey)keys;
         //[Abstract]
@@ -2203,47 +2418,47 @@ namespace MPOS
     //delegate void MPAccessoryComponentInteractionAskForConfirmationParametersOptionals (MPAccessoryComponentInteractionAskForConfirmationParametersOptionals arg0);
 
     // @interface MPAccessoryComponentInteractionAskForConfirmationParameters : NSObject
-    [BaseType (typeof(NSObject))]
+    [BaseType(typeof(NSObject))]
     interface MPAccessoryComponentInteractionAskForConfirmationParameters
     {
         // +(instancetype _Nonnull)parametersWithText:(NSArray * _Nonnull)text optionals:(MPAccessoryComponentInteractionAskForConfirmationParametersOptionals _Nullable)optionalsBlock;
         [Static]
-        [Export ("parametersWithText:optionals:")]
-        MPAccessoryComponentInteractionAskForConfirmationParameters ParametersWithText (string[] text, [NullAllowed] MPAccessoryComponentInteractionAskForConfirmationParametersOptionals optionalsBlock);
+        [Export("parametersWithText:optionals:")]
+        MPAccessoryComponentInteractionAskForConfirmationParameters ParametersWithText(string[] text, [NullAllowed] MPAccessoryComponentInteractionAskForConfirmationParametersOptionals optionalsBlock);
     }
 
     // typedef void (^MPAccessoryComponentInteractionConfirmationSuccess)(MPAccessoryComponentInteraction * _Nonnull, MPAccessoryComponentInteractionConfirmationKey);
     // delegate void MPAccessoryComponentInteractionConfirmationSuccess (MPAccessoryComponentInteraction arg0, MPAccessoryComponentInteractionConfirmationKey arg1);
 
     // typedef void (^MPAccessoryComponentInteractionConfirmationFailure)(MPAccessoryComponentInteraction * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentInteractionConfirmationFailure (MPAccessoryComponentInteraction arg0, NSError arg1);
+    delegate void MPAccessoryComponentInteractionConfirmationFailure(MPAccessoryComponentInteraction arg0, NSError arg1);
 
-     // typedef void (^MPAccessoryComponentInteractionConfirmationAbort)(MPAccessoryComponentInteraction * _Nonnull);
-    delegate void MPAccessoryComponentInteractionConfirmationAbort (MPAccessoryComponentInteraction arg0);
+    // typedef void (^MPAccessoryComponentInteractionConfirmationAbort)(MPAccessoryComponentInteraction * _Nonnull);
+    delegate void MPAccessoryComponentInteractionConfirmationAbort(MPAccessoryComponentInteraction arg0);
 
     // typedef void (^MPAccessoryComponentInteractionAskForNumberSuccess)(MPAccessoryComponentInteraction * _Nonnull, NSString * _Nonnull);
-    delegate void MPAccessoryComponentInteractionAskForNumberSuccess (MPAccessoryComponentInteraction arg0, string arg1);
+    delegate void MPAccessoryComponentInteractionAskForNumberSuccess(MPAccessoryComponentInteraction arg0, string arg1);
 
     // typedef void (^MPAccessoryComponentInteractionAskForNumberFailure)(MPAccessoryComponentInteraction * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentInteractionAskForNumberFailure (MPAccessoryComponentInteraction arg0, NSError arg1);
+    delegate void MPAccessoryComponentInteractionAskForNumberFailure(MPAccessoryComponentInteraction arg0, NSError arg1);
 
     // typedef void (^MPAccessoryComponentInteractionAskForNumberAbort)(MPAccessoryComponentInteraction * _Nonnull);
-    delegate void MPAccessoryComponentInteractionAskForNumberAbort (MPAccessoryComponentInteraction arg0);
+    delegate void MPAccessoryComponentInteractionAskForNumberAbort(MPAccessoryComponentInteraction arg0);
 
     // typedef void (^MPAccessoryComponentInteractionDisplayTextSuccess)(MPAccessoryComponentInteraction * _Nonnull);
-    delegate void MPAccessoryComponentInteractionDisplayTextSuccess (MPAccessoryComponentInteraction arg0);
+    delegate void MPAccessoryComponentInteractionDisplayTextSuccess(MPAccessoryComponentInteraction arg0);
 
     // typedef void (^MPAccessoryComponentInteractionDisplayTextFailure)(MPAccessoryComponentInteraction * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentInteractionDisplayTextFailure (MPAccessoryComponentInteraction arg0, NSError arg1);
+    delegate void MPAccessoryComponentInteractionDisplayTextFailure(MPAccessoryComponentInteraction arg0, NSError arg1);
 
     // typedef void (^MPAccessoryComponentInteractionDisplayIdleScreenSuccess)(MPAccessoryComponentInteraction * _Nonnull);
-    delegate void MPAccessoryComponentInteractionDisplayIdleScreenSuccess (MPAccessoryComponentInteraction arg0);
+    delegate void MPAccessoryComponentInteractionDisplayIdleScreenSuccess(MPAccessoryComponentInteraction arg0);
 
     // typedef void (^MPAccessoryComponentInteractionDisplayIdleScreenFailure)(MPAccessoryComponentInteraction * _Nonnull, NSError * _Nonnull);
-    delegate void MPAccessoryComponentInteractionDisplayIdleScreenFailure (MPAccessoryComponentInteraction arg0, NSError arg1);
+    delegate void MPAccessoryComponentInteractionDisplayIdleScreenFailure(MPAccessoryComponentInteraction arg0, NSError arg1);
 
     // @interface MPAccessoryComponentInteraction : MPAccessoryComponent
-    [BaseType (typeof(MPAccessoryComponent))]
+    [BaseType(typeof(MPAccessoryComponent))]
     interface MPAccessoryComponentInteraction
     {
         // -(void)askForConfirmationWithParameters:(MPAccessoryComponentInteractionAskForConfirmationParameters * _Nonnull)params success:(MPAccessoryComponentInteractionConfirmationSuccess _Nonnull)success abort:(MPAccessoryComponentInteractionConfirmationAbort _Nonnull)abort failure:(MPAccessoryComponentInteractionConfirmationFailure _Nonnull)failure;
@@ -2251,16 +2466,16 @@ namespace MPOS
         //void AskForConfirmationWithParameters (MPAccessoryComponentInteractionAskForConfirmationParameters @params, MPAccessoryComponentInteractionConfirmationSuccess success, MPAccessoryComponentInteractionConfirmationAbort abort, MPAccessoryComponentInteractionConfirmationFailure failure);
 
         // -(void)askForNumberWithParameters:(MPAccessoryComponentInteractionAskForNumberParameters * _Nonnull)params success:(MPAccessoryComponentInteractionAskForNumberSuccess _Nonnull)success abort:(MPAccessoryComponentInteractionAskForNumberAbort _Nonnull)abort failure:(MPAccessoryComponentInteractionAskForNumberFailure _Nonnull)failure;
-        [Export ("askForNumberWithParameters:success:abort:failure:")]
-        void AskForNumberWithParameters (MPAccessoryComponentInteractionAskForNumberParameters @params, MPAccessoryComponentInteractionAskForNumberSuccess success, MPAccessoryComponentInteractionAskForNumberAbort abort, MPAccessoryComponentInteractionAskForNumberFailure failure);
+        [Export("askForNumberWithParameters:success:abort:failure:")]
+        void AskForNumberWithParameters(MPAccessoryComponentInteractionAskForNumberParameters @params, MPAccessoryComponentInteractionAskForNumberSuccess success, MPAccessoryComponentInteractionAskForNumberAbort abort, MPAccessoryComponentInteractionAskForNumberFailure failure);
 
         // -(void)displayText:(NSArray * _Nonnull)text success:(MPAccessoryComponentInteractionDisplayTextSuccess _Nonnull)success failure:(MPAccessoryComponentInteractionDisplayTextFailure _Nonnull)failure;
-        [Export ("displayText:success:failure:")]
-        void DisplayText (string[] text, MPAccessoryComponentInteractionDisplayTextSuccess success, MPAccessoryComponentInteractionDisplayTextFailure failure);
+        [Export("displayText:success:failure:")]
+        void DisplayText(string[] text, MPAccessoryComponentInteractionDisplayTextSuccess success, MPAccessoryComponentInteractionDisplayTextFailure failure);
 
         // -(void)displayIdleScreenSuccess:(MPAccessoryComponentInteractionDisplayIdleScreenSuccess _Nonnull)success failure:(MPAccessoryComponentInteractionDisplayIdleScreenFailure _Nonnull)failure;
-        [Export ("displayIdleScreenSuccess:failure:")]
-        void DisplayIdleScreenSuccess (MPAccessoryComponentInteractionDisplayIdleScreenSuccess success, MPAccessoryComponentInteractionDisplayIdleScreenFailure failure);
+        [Export("displayIdleScreenSuccess:failure:")]
+        void DisplayIdleScreenSuccess(MPAccessoryComponentInteractionDisplayIdleScreenSuccess success, MPAccessoryComponentInteractionDisplayIdleScreenFailure failure);
     }
 
     // @interface MPApplicationInformation : NSObject
@@ -2286,10 +2501,10 @@ namespace MPOS
     }
 
     // typedef void (^MPPrintingProcessStatusChanged)(MPPrintingProcess * _Nonnull, MPTransaction * _Nullable, MPPrintingProcessDetails * _Nonnull);
-    delegate void MPPrintingProcessStatusChanged (MPPrintingProcess arg0, [NullAllowed] MPTransaction arg1, MPPrintingProcessDetails arg2);
+    delegate void MPPrintingProcessStatusChanged(MPPrintingProcess arg0, [NullAllowed] MPTransaction arg1, MPPrintingProcessDetails arg2);
 
     // typedef void (^MPPrintingProcessCompleted)(MPPrintingProcess * _Nonnull, MPTransaction * _Nullable, MPPrintingProcessDetails * _Nonnull);
-    delegate void MPPrintingProcessCompleted (MPPrintingProcess arg0, [NullAllowed] MPTransaction arg1, MPPrintingProcessDetails arg2);
+    delegate void MPPrintingProcessCompleted(MPPrintingProcess arg0, [NullAllowed] MPTransaction arg1, MPPrintingProcessDetails arg2);
 
     // @interface MPPrintingProcess : NSObject
     [BaseType(typeof(NSObject))]
@@ -2338,16 +2553,16 @@ namespace MPOS
     }
 
     // typedef void (^MPTransactionProcessRegistered)(MPTransactionProcess * _Nonnull, MPTransaction * _Nonnull);
-    delegate void MPTransactionProcessRegistered (MPTransactionProcess arg0, MPTransaction arg1);
+    delegate void MPTransactionProcessRegistered(MPTransactionProcess arg0, MPTransaction arg1);
 
     // typedef void (^MPTransactionProcessStatusChanged)(MPTransactionProcess * _Nonnull, MPTransaction * _Nullable, MPTransactionProcessDetails * _Nonnull);
-    delegate void MPTransactionProcessStatusChanged (MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
+    delegate void MPTransactionProcessStatusChanged(MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
 
     // typedef void (^MPTransactionProcessActionRequired)(MPTransactionProcess * _Nonnull, MPTransaction * _Nonnull, int, MPTransactionActionSupport * _Nullable);
-    delegate void MPTransactionProcessActionRequired (MPTransactionProcess arg0, MPTransaction arg1, int arg2, [NullAllowed] MPTransactionActionSupport arg3);
+    delegate void MPTransactionProcessActionRequired(MPTransactionProcess arg0, MPTransaction arg1, int arg2, [NullAllowed] MPTransactionActionSupport arg3);
 
     // typedef void (^MPTransactionProcessCompleted)(MPTransactionProcess * _Nonnull, MPTransaction * _Nullable, MPTransactionProcessDetails * _Nonnull);
-    delegate void MPTransactionProcessCompleted (MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
+    delegate void MPTransactionProcessCompleted(MPTransactionProcess arg0, [NullAllowed] MPTransaction arg1, MPTransactionProcessDetails arg2);
 
     // @interface MPTransactionProcess : NSObject
     [BaseType(typeof(NSObject))]
@@ -2403,48 +2618,48 @@ namespace MPOS
     }
 
     // @interface MPTransactionProvider : NSObject
-    [BaseType (typeof(NSObject))]
+    [BaseType(typeof(NSObject))]
     interface MPTransactionProvider
     {
         // @property (readonly, nonatomic, strong) MPLocalizationToolbox * _Nonnull localizationToolbox;
-        [Export ("localizationToolbox", ArgumentSemantic.Strong)]
+        [Export("localizationToolbox", ArgumentSemantic.Strong)]
         MPLocalizationToolbox LocalizationToolbox { get; }
 
         // @property (readonly, nonatomic, strong) MPTransactionModule * _Nonnull transactionModule;
-        [Export ("transactionModule", ArgumentSemantic.Strong)]
+        [Export("transactionModule", ArgumentSemantic.Strong)]
         MPTransactionModule TransactionModule { get; }
 
         // @property (readonly, nonatomic, strong) MPAccessoryModule * _Nonnull accessoryModule;
-        [Export ("accessoryModule", ArgumentSemantic.Strong)]
+        [Export("accessoryModule", ArgumentSemantic.Strong)]
         MPAccessoryModule AccessoryModule { get; }
 
         // -(MPTransactionProcess * _Nonnull)startTransactionWithSessionIdentifier:(NSString * _Nonnull)sessionIdentifier accessoryParameters:(MPAccessoryParameters * _Nonnull)accessoryParameters statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged actionRequired:(MPTransactionProcessActionRequired _Nonnull)actionRequired completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("startTransactionWithSessionIdentifier:accessoryParameters:statusChanged:actionRequired:completed:")]
-        MPTransactionProcess StartTransactionWithSessionIdentifier (string sessionIdentifier, MPAccessoryParameters accessoryParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
+        [Export("startTransactionWithSessionIdentifier:accessoryParameters:statusChanged:actionRequired:completed:")]
+        MPTransactionProcess StartTransactionWithSessionIdentifier(string sessionIdentifier, MPAccessoryParameters accessoryParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
 
         // -(MPTransactionProcess * _Nonnull)startTransactionWithSessionIdentifier:(NSString * _Nonnull)sessionIdentifier accessoryParameters:(MPAccessoryParameters * _Nonnull)accessoryParameters processParameters:(MPTransactionProcessParameters * _Nonnull)processParameters statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged actionRequired:(MPTransactionProcessActionRequired _Nonnull)actionRequired completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("startTransactionWithSessionIdentifier:accessoryParameters:processParameters:statusChanged:actionRequired:completed:")]
-        MPTransactionProcess StartTransactionWithSessionIdentifier (string sessionIdentifier, MPAccessoryParameters accessoryParameters, MPTransactionProcessParameters processParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
+        [Export("startTransactionWithSessionIdentifier:accessoryParameters:processParameters:statusChanged:actionRequired:completed:")]
+        MPTransactionProcess StartTransactionWithSessionIdentifier(string sessionIdentifier, MPAccessoryParameters accessoryParameters, MPTransactionProcessParameters processParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
 
         // -(MPTransactionProcess * _Nonnull)startTransactionWithParameters:(MPTransactionParameters * _Nonnull)transactionParameters accessoryParameters:(MPAccessoryParameters * _Nonnull)accessoryParameters registered:(MPTransactionProcessRegistered _Nonnull)registered statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged actionRequired:(MPTransactionProcessActionRequired _Nonnull)actionRequired completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("startTransactionWithParameters:accessoryParameters:registered:statusChanged:actionRequired:completed:")]
-        MPTransactionProcess StartTransactionWithParameters (MPTransactionParameters transactionParameters, MPAccessoryParameters accessoryParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
+        [Export("startTransactionWithParameters:accessoryParameters:registered:statusChanged:actionRequired:completed:")]
+        MPTransactionProcess StartTransactionWithParameters(MPTransactionParameters transactionParameters, MPAccessoryParameters accessoryParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
 
         // -(MPTransactionProcess * _Nonnull)startTransactionWithParameters:(MPTransactionParameters * _Nonnull)transactionParameters accessoryParameters:(MPAccessoryParameters * _Nonnull)accessoryParameters processParameters:(MPTransactionProcessParameters * _Nullable)processParameters registered:(MPTransactionProcessRegistered _Nonnull)registered statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged actionRequired:(MPTransactionProcessActionRequired _Nonnull)actionRequired completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("startTransactionWithParameters:accessoryParameters:processParameters:registered:statusChanged:actionRequired:completed:")]
-        MPTransactionProcess StartTransactionWithParameters (MPTransactionParameters transactionParameters, MPAccessoryParameters accessoryParameters, [NullAllowed] MPTransactionProcessParameters processParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
+        [Export("startTransactionWithParameters:accessoryParameters:processParameters:registered:statusChanged:actionRequired:completed:")]
+        MPTransactionProcess StartTransactionWithParameters(MPTransactionParameters transactionParameters, MPAccessoryParameters accessoryParameters, [NullAllowed] MPTransactionProcessParameters processParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessActionRequired actionRequired, MPTransactionProcessCompleted completed);
 
         // -(MPTransactionProcess * _Nonnull)startTransactionWithParameters:(MPTransactionParameters * _Nonnull)transactionParameters accountParameters:(MPAccountParameters * _Nonnull)accountParameters registered:(MPTransactionProcessRegistered _Nonnull)registered statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("startTransactionWithParameters:accountParameters:registered:statusChanged:completed:")]
-        MPTransactionProcess StartTransactionWithParameters (MPTransactionParameters transactionParameters, MPAccountParameters accountParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessCompleted completed);
+        [Export("startTransactionWithParameters:accountParameters:registered:statusChanged:completed:")]
+        MPTransactionProcess StartTransactionWithParameters(MPTransactionParameters transactionParameters, MPAccountParameters accountParameters, MPTransactionProcessRegistered registered, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessCompleted completed);
 
         // -(MPTransactionProcess * _Nonnull)amendTransactionWithParameters:(MPTransactionParameters * _Nonnull)transactionParameters statusChanged:(MPTransactionProcessStatusChanged _Nonnull)statusChanged completed:(MPTransactionProcessCompleted _Nonnull)completed;
-        [Export ("amendTransactionWithParameters:statusChanged:completed:")]
-        MPTransactionProcess AmendTransactionWithParameters (MPTransactionParameters transactionParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessCompleted completed);
+        [Export("amendTransactionWithParameters:statusChanged:completed:")]
+        MPTransactionProcess AmendTransactionWithParameters(MPTransactionParameters transactionParameters, MPTransactionProcessStatusChanged statusChanged, MPTransactionProcessCompleted completed);
 
         // -(MPPrintingProcess * _Nonnull)printCustomerReceiptForTransactionIdentifier:(NSString * _Nonnull)transactionIdentifier accessoryParameters:(MPAccessoryParameters * _Nonnull)accessoryParameters statusChanged:(MPPrintingProcessStatusChanged _Nonnull)statusChanged completed:(MPPrintingProcessCompleted _Nonnull)completed;
-        [Export ("printCustomerReceiptForTransactionIdentifier:accessoryParameters:statusChanged:completed:")]
-        MPPrintingProcess PrintCustomerReceiptForTransactionIdentifier (string transactionIdentifier, MPAccessoryParameters accessoryParameters, MPPrintingProcessStatusChanged statusChanged, MPPrintingProcessCompleted completed);
+        [Export("printCustomerReceiptForTransactionIdentifier:accessoryParameters:statusChanged:completed:")]
+        MPPrintingProcess PrintCustomerReceiptForTransactionIdentifier(string transactionIdentifier, MPAccessoryParameters accessoryParameters, MPPrintingProcessStatusChanged statusChanged, MPPrintingProcessCompleted completed);
     }
 
     // @interface MPTransactionProcessDetails : NSObject
@@ -2786,27 +3001,27 @@ namespace MPOS
     {
         // @required -(void)addAskForTipStepWithSuggestedAmount:(NSDecimalNumber * _Nullable)suggestedAmount __attribute__((deprecated("Use setTippingStepParameters method")));
         //[Abstract]
-       // [Export("addAskForTipStepWithSuggestedAmount:")]
+        // [Export("addAskForTipStepWithSuggestedAmount:")]
         //void AddAskForTipStepWithSuggestedAmount([NullAllowed] NSDecimalNumber suggestedAmount);
 
         // @required -(void)setTippingStepParameters:(MPTransactionProcessTippingStepParameters * _Nullable)tippingStepParameters;
-       // [Abstract]
-       // [Export("setTippingStepParameters:")]
-       // void SetTippingStepParameters([NullAllowed] MPTransactionProcessTippingStepParameters tippingStepParameters);
+        // [Abstract]
+        // [Export("setTippingStepParameters:")]
+        // void SetTippingStepParameters([NullAllowed] MPTransactionProcessTippingStepParameters tippingStepParameters);
     }
 
     // typedef void (^MPTransactionProcessParametersStepsBlock)(id<MPTransactionProcessParametersSteps> _Nonnull);
     delegate void MPTransactionProcessParametersStepsBlock(MPTransactionProcessParametersSteps arg0);
 
     // @interface MPTransactionProcessParameters : NSObject
-    [BaseType (typeof(NSObject))]
+    [BaseType(typeof(NSObject))]
     interface MPTransactionProcessParameters
     {
         // +(instancetype _Nullable)parametersWithSteps:(MPTransactionProcessParametersStepsBlock _Nonnull)stepsBlock;
         [Static]
-        [Export ("parametersWithSteps:")]
+        [Export("parametersWithSteps:")]
         [return: NullAllowed]
-        MPTransactionProcessParameters ParametersWithSteps (MPTransactionProcessParametersStepsBlock stepsBlock);
+        MPTransactionProcessParameters ParametersWithSteps(MPTransactionProcessParametersStepsBlock stepsBlock);
     }
 
     // @protocol MPAccessoryComponentTippingParametersOptionals <NSObject>
@@ -2830,22 +3045,22 @@ namespace MPOS
     }*/
 
     // @protocol MPAccessoryComponentTippingTipAmountParametersOptionals <MPAccessoryComponentTippingParametersOptionals>
-   /* [BaseType(typeof(MPAccessoryComponentTippingParametersOptionals))]
-    interface MPAccessoryComponentTippingTipAmountParametersOptionals
-    {
-    }
+    /* [BaseType(typeof(MPAccessoryComponentTippingParametersOptionals))]
+     interface MPAccessoryComponentTippingTipAmountParametersOptionals
+     {
+     }
 
-// @protocol MPAccessoryComponentTippingTotalAmountParametersOptionals <MPAccessoryComponentTippingParametersOptionals>
-    [BaseType(typeof(MPAccessoryComponentTippingParametersOptionals))]
-    interface MPAccessoryComponentTippingTotalAmountParametersOptionals
-    {
-        // @required -(void)setZeroAmountDefaultsToTransactionAmount:(BOOL)zeroAmountDefaultsToTransactionAmount;
-        [Abstract]
-        [Export("setZeroAmountDefaultsToTransactionAmount:")]
-        void SetZeroAmountDefaultsToTransactionAmount(bool zeroAmountDefaultsToTransactionAmount);
-    }
+ // @protocol MPAccessoryComponentTippingTotalAmountParametersOptionals <MPAccessoryComponentTippingParametersOptionals>
+     [BaseType(typeof(MPAccessoryComponentTippingParametersOptionals))]
+     interface MPAccessoryComponentTippingTotalAmountParametersOptionals
+     {
+         // @required -(void)setZeroAmountDefaultsToTransactionAmount:(BOOL)zeroAmountDefaultsToTransactionAmount;
+         [Abstract]
+         [Export("setZeroAmountDefaultsToTransactionAmount:")]
+         void SetZeroAmountDefaultsToTransactionAmount(bool zeroAmountDefaultsToTransactionAmount);
+     }
 
-    */
+     */
 
     /*
 
@@ -3025,7 +3240,7 @@ namespace MPOS
     [BaseType(typeof(NSObject))]
     interface MPDisplayUpdateSupport
     {
-        
+
     }
 
     // typedef void (^MPTransactionModuleLookupByTransactionIdentifierCompleted)(MPTransaction * _Nullable, NSError * _Nullable);
@@ -3060,3 +3275,224 @@ namespace MPOS
     }
 
 }
+
+namespace Paybutton
+{
+    // typedef void (^MPUTransactionCompleted)(UIViewController * _Nonnull, MPUTransactionResult, MPTransaction * _Nullable);
+    delegate void MPUTransactionCompleted(UIViewController arg0, long arg1, [NullAllowed] MPOS.MPTransaction arg2);
+
+    // typedef void (^MPUPrintReceiptCompleted)(UIViewController * _Nonnull, MPUPrintReceiptResult);
+    delegate void MPUPrintReceiptCompleted(UIViewController arg0, long arg1);
+
+    // typedef void (^MPUSummaryCompleted)(UIViewController * _Nonnull);
+    delegate void MPUSummaryCompleted(UIViewController arg0);
+
+    // typedef void (^MPUSettingsCompleted)(UIViewController * _Nonnull);
+    delegate void MPUSettingsCompleted(UIViewController arg0);
+
+    // typedef void (^MPULoginCompleted)(UIViewController * _Nonnull, MPULoginResult);
+    delegate void MPULoginCompleted(UIViewController arg0, long arg1);
+
+    // @interface MPUMposUi : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MPUMposUi
+    {
+        // @property (nonatomic, strong) MPTransaction * _Nullable transaction;
+        [NullAllowed, Export("transaction", ArgumentSemantic.Strong)]
+        MPOS.MPTransaction Transaction { get; set; }
+
+        // @property (nonatomic, strong) int * _Nullable transactionProvider;
+        [NullAllowed, Export("transactionProvider", ArgumentSemantic.Strong)]
+        MPOS.MPTransactionProvider TransactionProvider { get; set; }
+
+        // @property (nonatomic, strong) int * _Nullable transactionProcessDetails;
+        [NullAllowed, Export("transactionProcessDetails", ArgumentSemantic.Strong)]
+        MPOS.MPTransactionProcessDetails TransactionProcessDetails { get; set; }
+
+        // @property (nonatomic, strong) NSError * _Nullable error;
+        [NullAllowed, Export("error", ArgumentSemantic.Strong)]
+        NSError Error { get; set; }
+
+        // @property (nonatomic, strong) MPUMposUiConfiguration * _Nonnull configuration;
+        [Export("configuration", ArgumentSemantic.Strong)]
+        MPUMposUiConfiguration Configuration { get; set; }
+
+        // +(NSString * _Nonnull)version;
+        [Static]
+        [Export("version")]
+        string Version();
+
+        // +(instancetype _Nullable)sharedInitializedInstance;
+        [Static]
+        [Export("sharedInitializedInstance")]
+        [return: NullAllowed]
+        MPUMposUi SharedInitializedInstance();
+
+        // +(instancetype _Nonnull)initializeWithProviderMode:(id)providerMode merchantIdentifier:(NSString * _Nonnull)merchantIdentifier merchantSecret:(NSString * _Nonnull)merchantSecret;
+        [Static]
+        [Export("initializeWithProviderMode:merchantIdentifier:merchantSecret:")]
+        MPUMposUi InitializeWithProviderMode(MPProviderMode providerMode, string merchantIdentifier, string merchantSecret);
+
+        // +(instancetype _Nonnull)initializeWithApplication:(MPUApplicationName)applicationName integratorIdentifier:(NSString * _Nonnull)integratorIdentifier __attribute__((deprecated("Use initializeWithProviderMode:application:integratorIdentifier instead")));
+        [Static]
+        [Export("initializeWithApplication:integratorIdentifier:")]
+        MPUMposUi InitializeWithApplication(MPUApplicationName applicationName, string integratorIdentifier);
+
+        // +(instancetype _Nonnull)initializeWithProviderMode:(id)providerMode application:(MPUApplicationName)applicationName integratorIdentifier:(NSString * _Nonnull)integratorIdentifier;
+        [Static]
+        [Export("initializeWithProviderMode:application:integratorIdentifier:")]
+        MPUMposUi InitializeWithProviderMode(MPProviderMode providerMode, MPUApplicationName applicationName, string integratorIdentifier);
+
+        // -(UIViewController * _Nonnull)createTransactionViewControllerWithSessionIdentifier:(NSString * _Nonnull)sessionIdentifier completed:(MPUTransactionCompleted _Nonnull)completed;
+        [Export("createTransactionViewControllerWithSessionIdentifier:completed:")]
+        UIViewController CreateTransactionViewControllerWithSessionIdentifier(string sessionIdentifier, MPUTransactionCompleted completed);
+
+        // -(UIViewController * _Nonnull)createChargeTransactionViewControllerWithAmount:(NSDecimalNumber * _Nonnull)amount currency:(id)currency subject:(NSString * _Nullable)subject customIdentifier:(NSString * _Nullable)customIdentifier completed:(MPUTransactionCompleted _Nonnull)completed __attribute__((deprecated("Use createTransactionViewControllerWithTransactionParameters:completed: instead")));
+        [Export("createChargeTransactionViewControllerWithAmount:currency:subject:customIdentifier:completed:")]
+        UIViewController CreateChargeTransactionViewControllerWithAmount(NSDecimalNumber amount, MPCurrency currency, [NullAllowed] string subject, [NullAllowed] string customIdentifier, MPUTransactionCompleted completed);
+
+        // -(UIViewController * _Nonnull)createRefundTransactionViewControllerWithTransactionIdentifer:(NSString * _Nonnull)transactionIndentifier subject:(NSString * _Nullable)subject customIdentifier:(NSString * _Nullable)customIdentifier completed:(MPUTransactionCompleted _Nonnull)completed __attribute__((deprecated("Use createTransactionViewControllerWithTransactionParameters:completed: instead")));
+        [Export("createRefundTransactionViewControllerWithTransactionIdentifer:subject:customIdentifier:completed:")]
+        UIViewController CreateRefundTransactionViewControllerWithTransactionIdentifer(string transactionIndentifier, [NullAllowed] string subject, [NullAllowed] string customIdentifier, MPUTransactionCompleted completed);
+
+        // -(UIViewController * _Nonnull)createTransactionViewControllerWithTransactionParameters:(id)transactionParameters completed:(MPUTransactionCompleted _Nonnull)completed;
+        [Export("createTransactionViewControllerWithTransactionParameters:completed:")]
+        UIViewController CreateTransactionViewControllerWithTransactionParameters(MPOS.MPTransactionParameters transactionParameters, MPUTransactionCompleted completed);
+
+        // -(UIViewController * _Nonnull)createTransactionViewControllerWithTransactionParameters:(id)transactionParameters processParameters:(id)processParameters completed:(MPUTransactionCompleted _Nonnull)completed;
+        [Export("createTransactionViewControllerWithTransactionParameters:processParameters:completed:")]
+        UIViewController CreateTransactionViewControllerWithTransactionParameters(MPOS.MPTransactionParameters transactionParameters, MPOS.MPTransactionProcessParameters processParameters, MPUTransactionCompleted completed);
+
+        // -(UIViewController * _Nonnull)createSummaryViewControllerWithTransactionIdentifier:(NSString * _Nonnull)transacitonIdentifier completed:(MPUSummaryCompleted _Nonnull)completed;
+        [Export("createSummaryViewControllerWithTransactionIdentifier:completed:")]
+        UIViewController CreateSummaryViewControllerWithTransactionIdentifier(string transacitonIdentifier, MPUSummaryCompleted completed);
+
+        // -(UIViewController * _Nonnull)createPrintTransactionViewControllerWithTransactionIdentifier:(NSString * _Nonnull)transactionIdentifier completed:(MPUPrintReceiptCompleted _Nonnull)completed;
+        [Export("createPrintTransactionViewControllerWithTransactionIdentifier:completed:")]
+        UIViewController CreatePrintTransactionViewControllerWithTransactionIdentifier(string transactionIdentifier, MPUPrintReceiptCompleted completed);
+
+        // -(UIViewController * _Nonnull)createSettingsViewController:(MPUSettingsCompleted _Nonnull)completed;
+        [Export("createSettingsViewController:")]
+        UIViewController CreateSettingsViewController(MPUSettingsCompleted completed);
+
+        // -(UIViewController * _Nonnull)createLoginViewController:(MPULoginCompleted _Nonnull)completed;
+        [Export("createLoginViewController:")]
+        UIViewController CreateLoginViewController(MPULoginCompleted completed);
+
+        // -(void)logoutFromApplication;
+        [Export("logoutFromApplication")]
+        void LogoutFromApplication();
+
+        // -(BOOL)isApplicationLoggedIn;
+        [Export("isApplicationLoggedIn")]
+        bool IsApplicationLoggedIn();
+    }
+
+    // @interface MPUMposUiAppearance : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MPUMposUiAppearance
+    {
+        // @property (nonatomic, strong) UIColor * _Nonnull navigationBarTint;
+        [Export("navigationBarTint", ArgumentSemantic.Strong)]
+        UIColor NavigationBarTint { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull navigationBarTextColor;
+        [Export("navigationBarTextColor", ArgumentSemantic.Strong)]
+        UIColor NavigationBarTextColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
+        [Export("backgroundColor", ArgumentSemantic.Strong)]
+        UIColor BackgroundColor { get; set; }
+
+        // @property (assign, nonatomic) UIStatusBarStyle statusBarStyle;
+        [Export("statusBarStyle", ArgumentSemantic.Assign)]
+        UIStatusBarStyle StatusBarStyle { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull preauthorizedBackgroundColor;
+        [Export("preauthorizedBackgroundColor", ArgumentSemantic.Strong)]
+        UIColor PreauthorizedBackgroundColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull preauthorizedTextColor;
+        [Export("preauthorizedTextColor", ArgumentSemantic.Strong)]
+        UIColor PreauthorizedTextColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull approvedBackgroundColor;
+        [Export("approvedBackgroundColor", ArgumentSemantic.Strong)]
+        UIColor ApprovedBackgroundColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull approvedTextColor;
+        [Export("approvedTextColor", ArgumentSemantic.Strong)]
+        UIColor ApprovedTextColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull declinedBackgroundColor;
+        [Export("declinedBackgroundColor", ArgumentSemantic.Strong)]
+        UIColor DeclinedBackgroundColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull declinedTextColor;
+        [Export("declinedTextColor", ArgumentSemantic.Strong)]
+        UIColor DeclinedTextColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull refundedBackgroundColor;
+        [Export("refundedBackgroundColor", ArgumentSemantic.Strong)]
+        UIColor RefundedBackgroundColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nonnull refundedTextColor;
+        [Export("refundedTextColor", ArgumentSemantic.Strong)]
+        UIColor RefundedTextColor { get; set; }
+
+        // @property (nonatomic, strong) UIColor * _Nullable actionButtonTextColor;
+        [NullAllowed, Export("actionButtonTextColor", ArgumentSemantic.Strong)]
+        UIColor ActionButtonTextColor { get; set; }
+    }
+
+    /*[Static]
+    partial interface Constants
+    {
+        // extern const NSTimeInterval MPUMposUiConfigurationResultDisplayCloseTimeout;
+        [Field("MPUMposUiConfigurationResultDisplayCloseTimeout", "__Internal")]
+        double MPUMposUiConfigurationResultDisplayCloseTimeout { get; }
+    }*/
+
+    // @interface MPUMposUiConfiguration : NSObject
+    [BaseType(typeof(NSObject))]
+    interface MPUMposUiConfiguration
+    {
+        // @property (assign, nonatomic) int terminalFamily __attribute__((deprecated("Use terminalParameters instead!")));
+        [Export("terminalFamily")]
+        MPAccessoryFamily TerminalFamily { get; set; }
+
+        // @property (nonatomic, strong) int * _Nonnull terminalParameters;
+        [Export("terminalParameters", ArgumentSemantic.Strong)]
+        MPOS.MPAccessoryParameters TerminalParameters { get; set; }
+
+        // @property (assign, nonatomic) int printerFamily __attribute__((deprecated("Use printerParameters instead!")));
+        [Export("printerFamily")]
+        MPAccessoryFamily PrinterFamily { get; set; }
+
+        // @property (nonatomic, strong) int * _Nonnull printerParameters;
+        [Export("printerParameters", ArgumentSemantic.Strong)]
+        MPOS.MPAccessoryParameters PrinterParameters { get; set; }
+
+        // @property (nonatomic, strong) MPUMposUiAppearance * _Nonnull appearance;
+        [Export("appearance", ArgumentSemantic.Strong)]
+        MPUMposUiAppearance Appearance { get; set; }
+
+        // @property (assign, nonatomic) MPUMposUiConfigurationSignatureCapture signatureCapture;
+        [Export("signatureCapture", ArgumentSemantic.Assign)]
+        MPUMposUiConfigurationSignatureCapture SignatureCapture { get; set; }
+
+        // @property (assign, nonatomic) MPUMposUiConfigurationSummaryFeature summaryFeatures;
+        [Export("summaryFeatures", ArgumentSemantic.Assign)]
+        MPUMposUiConfigurationSummaryFeature SummaryFeatures { get; set; }
+
+        // @property (assign, nonatomic) MPUMposUiConfigurationResultDisplayBehavior resultDisplayBehavior;
+        [Export("resultDisplayBehavior", ArgumentSemantic.Assign)]
+        MPUMposUiConfigurationResultDisplayBehavior ResultDisplayBehavior { get; set; }
+
+        // @property (assign, nonatomic) MPUMposUiConfigurationPaymentMethod paymentMethods;
+        [Export("paymentMethods", ArgumentSemantic.Assign)]
+        MPUMposUiConfigurationPaymentMethod PaymentMethods { get; set; }
+    }
+
+}
+

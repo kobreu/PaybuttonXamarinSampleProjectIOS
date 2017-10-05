@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace PayworksIOS
+namespace PayworksSample
 {
     public class Application
     {

@@ -2,19 +2,17 @@
 
 using UIKit;
 
-namespace PayworksIOS
+namespace PayworksSample
 {
     public partial class ViewController : UIViewController
     {
-        partial void startTrx(UIButton sender)
+
+        partial void toTrx(UIButton sender)
         {
 
-           // sender.SetTitle(MPOS.MPMpos.Version, UIControlState.Normal);
-
-
-          /*
-           *  CODE FOR THE TRANSACTION PROVIDER
-           * var provider = MPOS.MPMpos.TransactionProviderForMode(MPProviderMode.Mock, "sdlfkjsdlfkj", "asfajk;sflkj");
+            /*
+           *  CODE FOR THE TRANSACTION PROVIDER */
+           /* var provider = MPOS.MPMpos.TransactionProviderForMode(MPProviderMode.Mock, "sdlfkjsdlfkj", "asfajk;sflkj");
             var transactionParameters = MPOS.MPTransactionParameters.ChargeWithAmount(new Foundation.NSDecimalNumber("5.00"), MPCurrency.EUR, null);
 
             var accessoryParameters = MPOS.MPAccessoryParameters.ExternalAccessoryParametersWithFamily(MPAccessoryFamily.MiuraMPI, "com.miura.shuttle", null);
@@ -29,9 +27,9 @@ namespace PayworksIOS
                 
             }, (transactionProcess, transaction, transactionProcessDetails) => {
                 sender.SetTitle(transaction.MerchantReceipt.PrettyPrinted(), UIControlState.Normal);
-            });
+            });*/
 
-            * END CODE FOR TRANSACTION PROVIDER
+            /* END CODE FOR TRANSACTION PROVIDER
             */
 
             /* START CODE FOR PAYBUTTON */
@@ -49,9 +47,12 @@ namespace PayworksIOS
                 this.DismissViewController(true, null);
 
                 var res = (MPUTransactionResult)result;
-                if(res == MPUTransactionResult.Approved) {
+                if (res == MPUTransactionResult.Approved)
+                {
                     sender.SetTitle("Payment was approved!", UIControlState.Normal);
-                } else {
+                }
+                else
+                {
                     sender.SetTitle("Payment was aborted / declined", UIControlState.Normal);
                 }
             });
@@ -81,3 +82,5 @@ namespace PayworksIOS
         }
     }
 }
+
+

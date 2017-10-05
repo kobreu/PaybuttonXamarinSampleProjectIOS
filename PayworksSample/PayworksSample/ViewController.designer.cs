@@ -8,14 +8,14 @@ using Foundation;
 using System;
 using System.CodeDom.Compiler;
 
-namespace PayworksIOS
+namespace PayworksSample
 {
     [Register ("ViewController")]
     partial class ViewController
     {
-        [Action ("startTrx:")]
+        [Action ("toTrx:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void startTrx (UIKit.UIButton sender);
+        partial void toTrx (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
