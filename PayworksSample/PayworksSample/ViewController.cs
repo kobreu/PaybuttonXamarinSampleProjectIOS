@@ -32,15 +32,27 @@ namespace PayworksSample
             /* END CODE FOR TRANSACTION PROVIDER
             */
 
-            /* START CODE FOR PAYBUTTON */
+
+
 
             var ui = Paybutton.MPUMposUi.InitializeWithProviderMode(MPProviderMode.Mock, "alskdj", "akjs");
+
+            /* START CODE FOR PAYBUTTON SALE */ 
+
+
 
             var accessoryParameters = MPOS.MPAccessoryParameters.ExternalAccessoryParametersWithFamily(MPAccessoryFamily.MiuraMPI, "com.miura.shuttle", null);
             var transactionParameters = MPOS.MPTransactionParameters.ChargeWithAmount(new Foundation.NSDecimalNumber("5.00"), MPCurrency.EUR, null);
 
             ui.Configuration.TerminalParameters = accessoryParameters;
             ui.Configuration.SummaryFeatures = MPUMposUiConfigurationSummaryFeature.SendReceiptViaEmail;
+
+            
+
+            /* PAYBUTTON REFUND */
+
+           /* ui.Configuration.SummaryFeatures = MPUMposUiConfigurationSummaryFeature.SendReceiptViaEmail;
+            var transactionParameters = MPOS.MPTransactionParameters.RefundForTransactionIdentifier("testabc", null);*/
 
             var viewController = ui.CreateTransactionViewControllerWithTransactionParameters(transactionParameters, (vc, result, transaction) =>
             {

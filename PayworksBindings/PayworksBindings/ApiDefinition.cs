@@ -2735,7 +2735,8 @@ namespace MPOS
     }
 
     // @protocol MPTransactionParametersStandaloneRefundOptionals <MPTransactionParametersBasicOptionals>
-    [Protocol]
+    [Protocol, Model]
+    [BaseType(typeof(NSObject))]
     interface MPTransactionParametersStandaloneRefundOptionals : MPTransactionParametersBasicOptionals
     {
     }
@@ -2869,6 +2870,32 @@ namespace MPOS
         [Static]
         [Export("chargeWithAmount:currency:optionals:")]
         MPTransactionParameters ChargeWithAmount(NSDecimalNumber amount, MPCurrency currency, [NullAllowed] MPTransactionParametersOptionalsBlock optionalsBlock);
+
+        // +(instancetype _Nonnull)refundWithAmount:(NSDecimalNumber * _Nonnull)amount currency:(id)currency optionals:(MPTransactionParametersStandaloneRefundOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("refundWithAmount:currency:optionals:")]
+        MPTransactionParameters RefundWithAmount(NSDecimalNumber amount, NSObject currency, [NullAllowed] MPTransactionParametersStandaloneRefundOptionalsBlock optionalsBlock);
+
+        // +(instancetype _Nonnull)refundForTransactionIdentifier:(NSString * _Nonnull)transactionIdentifier optionals:(MPTransactionParametersRefundOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("refundForTransactionIdentifier:optionals:")]
+        MPTransactionParameters RefundForTransactionIdentifier(string transactionIdentifier, [NullAllowed] MPTransactionParametersRefundOptionalsBlock optionalsBlock);
+
+        // +(instancetype _Nonnull)refundForCustomIdentifier:(NSString * _Nonnull)customIdentifier optionals:(MPTransactionParametersRefundOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("refundForCustomIdentifier:optionals:")]
+        MPTransactionParameters RefundForCustomIdentifier(string customIdentifier, [NullAllowed] MPTransactionParametersRefundOptionalsBlock optionalsBlock);
+
+        // +(instancetype _Nonnull)tipAdjustForTransactionIdentifier:(NSString * _Nonnull)transactionIdentifier optionals:(MPTransactionParametersTipAdjustOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("tipAdjustForTransactionIdentifier:optionals:")]
+        MPTransactionParameters TipAdjustForTransactionIdentifier(string transactionIdentifier, [NullAllowed] MPTransactionParametersTipAdjustOptionalsBlock optionalsBlock);
+
+        // +(instancetype _Nonnull)captureTransactionWithIdentifier:(NSString * _Nonnull)transactionIdentifier optionals:(MPTransactionParametersCaptureOptionalsBlock _Nullable)optionalsBlock;
+        [Static]
+        [Export("captureTransactionWithIdentifier:optionals:")]
+        MPTransactionParameters CaptureTransactionWithIdentifier(string transactionIdentifier, [NullAllowed] MPTransactionParametersCaptureOptionalsBlock optionalsBlock);
+
 
         // -(void)updateIncludedTipAmount:(NSDecimalNumber * _Nonnull)tipAmount;
         [Export("updateIncludedTipAmount:")]
